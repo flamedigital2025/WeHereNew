@@ -43,6 +43,9 @@
         const slides = document.querySelectorAll('.hero-slide');
 
         const transitioningPanel = document.getElementById('transitioning-panel');
+
+        // Page target definition
+        const isHeroPage = !!heroVideo && !!document.getElementById('hero-logo-placeholder');
         const horizontalSlides = document.getElementById('horizontal-slides');
         const viewportContainer = document.getElementById('viewport-container');
         const appScroller = document.querySelector('.app-scroller');
@@ -73,6 +76,7 @@
         let cachedEndRect = null;
 
         function cacheLogoBounds() {
+            if (!isHeroPage) return;
             // Temporarily restore visibility to get accurate rects
             const origPlaceholderVis = heroLogoPlaceholder.style.visibility;
             const origNavOpacity = navLogo.style.opacity;
@@ -104,14 +108,18 @@
         // Handle active elements on window resize
         window.addEventListener('resize', () => {
             initLenis();
-            syncDesktopScrollLayout();
-            cacheLogoBounds();
+            if (isHeroPage) {
+                syncDesktopScrollLayout();
+                cacheLogoBounds();
+            }
             if (window.innerWidth <= 991) {
-                transitioningPanel.style.transform = 'none';
-                transitioningPanel.style.opacity = '1';
-                transitioningPanel.style.borderRadius = '0';
-                transitioningPanel.style.pointerEvents = 'auto';
-                horizontalSlides.style.transform = 'none';
+                if (transitioningPanel) {
+                    transitioningPanel.style.transform = 'none';
+                    transitioningPanel.style.opacity = '1';
+                    transitioningPanel.style.borderRadius = '0';
+                    transitioningPanel.style.pointerEvents = 'auto';
+                }
+                if (horizontalSlides) horizontalSlides.style.transform = 'none';
                 if (processSlides) {
                     processSlides.style.transform = '';
                 }
@@ -135,7 +143,7 @@
                 if (navLogo) navLogo.style.opacity = '1';
                 if (heroLogoPlaceholder) heroLogoPlaceholder.style.visibility = 'visible';
             } else {
-                if (floatingLogo) floatingLogo.style.display = 'block';
+                if (floatingLogo && isHeroPage) floatingLogo.style.display = 'block';
             }
         });
 
@@ -468,7 +476,10 @@
 
         // Mobile play-on-scroll control
         function handleMobileScroll() {
-            const heroTrackRect = document.getElementById('hero-sticky').getBoundingClientRect();
+            if (!isHeroPage) return;
+            const heroStickyEl = document.getElementById('hero-sticky');
+            if (!heroStickyEl) return;
+            const heroTrackRect = heroStickyEl.getBoundingClientRect();
             const isHeroVisible = heroTrackRect.bottom > 0 && heroTrackRect.top < window.innerHeight;
 
             if (isHeroVisible) {
@@ -494,25 +505,45 @@
         let videoReady = false;
 
         function onVideoReady() {
+            if (videoReady) return;
             videoReady = true;
-            heroVideo.pause();
-            heroVideo.currentTime = 0;
+            // Force play and immediately pause to warm up and initialize the browser decoder pipeline
+            const playPromise = heroVideo.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    setTimeout(() => {
+                        heroVideo.pause();
+                        heroVideo.currentTime = 0;
+                    }, 50);
+                }).catch(() => {
+                    heroVideo.pause();
+                    heroVideo.currentTime = 0;
+                });
+            } else {
+                heroVideo.pause();
+                heroVideo.currentTime = 0;
+            }
         }
 
-        if (heroVideo.readyState >= 2) {
-            onVideoReady();
-        } else {
-            heroVideo.addEventListener('loadeddata', onVideoReady, { once: true });
-            heroVideo.addEventListener('canplay', onVideoReady, { once: true });
-        }
+        if (isHeroPage) {
+            if (heroVideo.readyState >= 2) {
+                onVideoReady();
+            } else {
+                heroVideo.addEventListener('loadedmetadata', onVideoReady, { once: true });
+                heroVideo.addEventListener('loadeddata', onVideoReady, { once: true });
+                heroVideo.addEventListener('canplay', onVideoReady, { once: true });
+                heroVideo.addEventListener('canplaythrough', onVideoReady, { once: true });
+            }
 
-        // Mobile fallback
-        heroVideo.addEventListener('loadedmetadata', () => {
-            if (window.innerWidth <= 991) handleMobileScroll();
-        });
+            // Mobile fallback
+            heroVideo.addEventListener('loadedmetadata', () => {
+                if (window.innerWidth <= 991) handleMobileScroll();
+            });
+        }
 
         // --- UNIFIED HIGH-PERFORMANCE ANIMATION LOOP ---
         function playbackLoop() {
+            if (!isHeroPage) return;
             const H = window.innerHeight;
 
             if (window.innerWidth > 991) {
@@ -587,10 +618,11 @@
                 if (smoothedScrollY <= heroScrollMax) {
                     const heroProgress = smoothedScrollY / heroScrollMax;
 
-                    // React/Framer-Motion style video scrubbing: 
-                    // Using seeking lock to prevent browser video renderer from freezing
-                    if (videoReady && heroVideo.duration && !heroVideo.seeking) {
-                        const newTime = heroProgress * heroVideo.duration;
+                    // React/Framer-Motion style video scrubbing with seek protection
+                    const isVideoScrubable = (videoReady || heroVideo.readyState >= 1) && heroVideo.duration && !heroVideo.seeking;
+                    if (isVideoScrubable) {
+                        const targetDuration = heroVideo.duration - 0.1;
+                        const newTime = Math.max(0, Math.min(targetDuration, heroProgress * targetDuration));
                         if (Math.abs(newTime - heroVideo.currentTime) > 0.05) {
                             heroVideo.currentTime = newTime;
                         }
@@ -652,9 +684,12 @@
                     transitioningPanel.style.pointerEvents = 'none';
 
                 } else if (smoothedScrollY > heroScrollMax && smoothedScrollY <= horizontalScrollStart) {
-                    // Lock video at end
-                    if (heroVideo.duration && !heroVideo.seeking && Math.abs(heroVideo.currentTime - heroVideo.duration) > 0.05) {
-                        heroVideo.currentTime = heroVideo.duration;
+                    // Lock video near the end to prevent stalls or black frames
+                    if (heroVideo.duration && !heroVideo.seeking) {
+                        const targetEnd = heroVideo.duration - 0.1;
+                        if (Math.abs(heroVideo.currentTime - targetEnd) > 0.05) {
+                            heroVideo.currentTime = targetEnd;
+                        }
                     }
 
                     const rawTransProgress = (smoothedScrollY - heroScrollMax) / transitionDuration;
@@ -679,9 +714,12 @@
                     horizontalSlides.style.transform = 'translateX(0vw)';
 
                 } else {
-                    // Lock video at end
-                    if (heroVideo.duration && !heroVideo.seeking && Math.abs(heroVideo.currentTime - heroVideo.duration) > 0.05) {
-                        heroVideo.currentTime = heroVideo.duration;
+                    // Lock video near the end to prevent stalls or black frames
+                    if (heroVideo.duration && !heroVideo.seeking) {
+                        const targetEnd = heroVideo.duration - 0.1;
+                        if (Math.abs(heroVideo.currentTime - targetEnd) > 0.05) {
+                            heroVideo.currentTime = targetEnd;
+                        }
                     }
 
                     const horProgress = (smoothedScrollY - horizontalScrollStart) / horizontalScrollDuration;
@@ -750,13 +788,9 @@
             requestAnimationFrame(playbackLoop);
         }
 
-        requestAnimationFrame(playbackLoop);
-
-        // Force initial layout updates
-        if (heroVideo.readyState >= 1) {
-            playbackLoop();
-        } else {
-            heroVideo.addEventListener('loadedmetadata', playbackLoop);
+        // Start animation loop only on pages that contain the cinematic hero elements
+        if (isHeroPage) {
+            requestAnimationFrame(playbackLoop);
         }
 
         // --- NAVIGATION ANCHOR SMOOTH SCROLL MAPPING ---
