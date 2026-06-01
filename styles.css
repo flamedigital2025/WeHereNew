@@ -79,8 +79,13 @@ html {
     -webkit-font-smoothing: antialiased;
 }
 
+html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
 body {
-    overflow-x: hidden;
     line-height: 1.6;
 }
 
@@ -3659,7 +3664,9 @@ body.scrolly-complete .site-tail {
 @media (max-width: 991px) {
     .app-scroller {
         position: relative;
-        width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
     }
 
     .viewport-container {
@@ -4127,9 +4134,50 @@ body.scrolly-complete .site-tail {
 
     /* ── Tech Orbit Container ── */
     .tech-orbit-container {
-        height: 420px;
-        transform: scale(0.6);
-        transform-origin: center center;
+        display: block !important;
+        height: 600px !important;
+        transform: none !important;
+        margin-top: 5rem !important;
+        overflow: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .orbit-center {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 90px !important;
+        height: 90px !important;
+        font-size: 0.9rem !important;
+    }
+    .orbit-center::before {
+        inset: -8px !important;
+    }
+    .ring-1 {
+        width: 200px !important;
+        height: 200px !important;
+    }
+    .ring-1 .orbit-node {
+        --radius: 100px !important;
+    }
+    .ring-2 {
+        width: 340px !important;
+        height: 340px !important;
+    }
+    .ring-2 .orbit-node {
+        --radius: 170px !important;
+    }
+    .ring-3 {
+        width: 480px !important;
+        height: 480px !important;
+    }
+    .ring-3 .orbit-node {
+        --radius: 240px !important;
+    }
+    .node-label {
+        padding: 0.4rem 0.9rem !important;
+        font-size: 0.78rem !important;
     }
 
     /* ── FAQ Section ── */
@@ -4369,8 +4417,50 @@ body.scrolly-complete .site-tail {
 
     /* ── Tech Orbit ── */
     .tech-orbit-container {
-        height: 340px;
-        transform: scale(0.48);
+        display: block !important;
+        height: 500px !important;
+        transform: none !important;
+        margin-top: 4.5rem !important;
+        overflow: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .orbit-center {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 80px !important;
+        height: 80px !important;
+        font-size: 0.8rem !important;
+    }
+    .orbit-center::before {
+        inset: -6px !important;
+    }
+    .ring-1 {
+        width: 170px !important;
+        height: 170px !important;
+    }
+    .ring-1 .orbit-node {
+        --radius: 85px !important;
+    }
+    .ring-2 {
+        width: 290px !important;
+        height: 290px !important;
+    }
+    .ring-2 .orbit-node {
+        --radius: 145px !important;
+    }
+    .ring-3 {
+        width: 410px !important;
+        height: 410px !important;
+    }
+    .ring-3 .orbit-node {
+        --radius: 205px !important;
+    }
+    .node-label {
+        padding: 0.35rem 0.75rem !important;
+        font-size: 0.72rem !important;
     }
 
     /* ── Marquee ── */
@@ -4531,8 +4621,50 @@ body.scrolly-complete .site-tail {
 
     /* ── Tech Orbit ── */
     .tech-orbit-container {
-        height: 280px;
-        transform: scale(0.38);
+        display: block !important;
+        height: 420px !important;
+        transform: none !important;
+        margin-top: 4rem !important;
+        overflow: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .orbit-center {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 70px !important;
+        height: 70px !important;
+        font-size: 0.7rem !important;
+    }
+    .orbit-center::before {
+        inset: -4px !important;
+    }
+    .ring-1 {
+        width: 130px !important;
+        height: 130px !important;
+    }
+    .ring-1 .orbit-node {
+        --radius: 65px !important;
+    }
+    .ring-2 {
+        width: 220px !important;
+        height: 220px !important;
+    }
+    .ring-2 .orbit-node {
+        --radius: 110px !important;
+    }
+    .ring-3 {
+        width: 310px !important;
+        height: 310px !important;
+    }
+    .ring-3 .orbit-node {
+        --radius: 155px !important;
+    }
+    .node-label {
+        padding: 0.3rem 0.6rem !important;
+        font-size: 0.65rem !important;
     }
 
     /* ── Radar Rings ── */
