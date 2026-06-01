@@ -4188,52 +4188,151 @@ body.scrolly-complete .site-tail {
 
     /* ── Footer ── */
     .site-footer {
-        padding: 2.5rem 0 1.5rem;
+        padding: 4rem 0 3rem !important;
+        background: rgba(3, 7, 18, 0.98) !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
     }
 
     .footer-top {
-        flex-direction: column;
-        gap: 2.5rem;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 3rem !important;
     }
 
     .footer-brand {
-        max-width: 100%;
-        text-align: center;
+        max-width: 480px !important;
+        margin: 0 auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .footer-brand .logo {
+        display: inline-flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin: 0 auto 1.25rem !important;
     }
 
     .footer-brand .logo-img {
-        height: 120px !important;
+        height: 50px !important;
+        width: auto !important;
     }
 
     .footer-brand p {
-        font-size: 0.88rem;
-        line-height: 1.6;
+        font-size: 0.88rem !important;
+        line-height: 1.6 !important;
+        color: var(--color-text-secondary) !important;
+        margin-bottom: 1.25rem !important;
     }
 
     .footer-brand .footer-contact {
-        margin-top: 0.5rem;
+        font-size: 0.88rem !important;
+        color: var(--color-text-muted) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+        align-items: center !important;
+        margin-top: 0.25rem !important;
+    }
+
+    .footer-brand .footer-contact a {
+        color: var(--color-secondary) !important;
+        text-decoration: none !important;
+        font-weight: 500 !important;
+        transition: color 0.3s ease !important;
+    }
+
+    .footer-brand .footer-contact a:hover {
+        color: var(--color-white) !important;
     }
 
     .footer-links {
         display: grid !important;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem 1.5rem;
-        width: 100%;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 2rem !important;
+        width: 100% !important;
+        text-align: center !important;
     }
 
-    .footer-group:last-child {
-        grid-column: 1 / -1;
+    .footer-group {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .footer-group h4 {
+        font-size: 0.95rem !important;
+        color: var(--color-white) !important;
+        margin-bottom: 1rem !important;
+        letter-spacing: 0.12em !important;
+    }
+
+    .footer-group ul {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.75rem !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+    }
+
+    .footer-group a {
+        font-size: 0.88rem !important;
+        color: var(--color-text-muted) !important;
+        transition: color 0.3s ease !important;
+    }
+
+    .footer-group a:hover {
+        color: var(--color-secondary) !important;
     }
 
     .footer-bottom {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        text-align: center;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1.5rem !important;
+        margin-top: 3.5rem !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+        padding-top: 2rem !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+
+    .footer-bottom p {
+        font-size: 0.8rem !important;
+        color: var(--color-text-muted) !important;
+        margin: 0 !important;
     }
 
     .social-links {
-        justify-content: center;
+        display: flex !important;
+        justify-content: center !important;
+        gap: 1.25rem !important;
+    }
+
+    .social-link {
+        width: 36px !important;
+        height: 36px !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 50% !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: var(--color-text-muted) !important;
+        font-size: 0.9rem !important;
+        transition: all 0.3s ease !important;
+        background: rgba(255, 255, 255, 0.02) !important;
+    }
+
+    .social-link:hover {
+        border-color: var(--color-secondary) !important;
+        color: var(--color-white) !important;
+        transform: translateY(-2px) !important;
     }
 
     /* ── Hero Logo ── */
@@ -4477,36 +4576,7 @@ body.scrolly-complete .site-tail {
         padding: 0.85rem 0;
     }
 
-    /* ── Footer ── */
-    .footer-links {
-        grid-template-columns: 1fr 1fr !important;
-        gap: 2rem 1.5rem !important;
-    }
 
-    .footer-group h4 {
-        font-size: 0.85rem;
-        margin-bottom: 0.85rem;
-    }
-
-    .footer-group ul {
-        gap: 0.55rem;
-    }
-
-    .footer-group a {
-        font-size: 0.82rem;
-    }
-
-    .footer-brand .logo-img {
-        height: 100px !important;
-    }
-
-    .footer-brand p {
-        font-size: 0.82rem;
-    }
-
-    .footer-brand .footer-contact {
-        font-size: 0.78rem;
-    }
 
     /* ── FAQ Item Sizing ── */
     .faq-item summary {
@@ -4700,32 +4770,25 @@ body.scrolly-complete .site-tail {
     /* ── Footer ── */
     .footer-links {
         grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
-    }
-
-    .footer-group:last-child {
-        grid-column: 1 !important;
-    }
-
-    .site-footer {
-        padding: 2rem 0 1.5rem;
+        gap: 2rem !important;
     }
 
     .footer-brand .logo-img {
-        height: 80px !important;
+        height: 44px !important;
     }
 
     .footer-brand p {
-        font-size: 0.78rem;
+        font-size: 0.82rem !important;
+        max-width: 290px !important;
     }
 
     .footer-group h4 {
-        font-size: 0.8rem;
-        margin-bottom: 0.75rem;
+        font-size: 0.88rem !important;
+        margin-bottom: 0.75rem !important;
     }
 
     .footer-group a {
-        font-size: 0.8rem;
+        font-size: 0.82rem !important;
     }
 
     /* ── Marquee ── */
