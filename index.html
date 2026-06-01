@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="We Here - An immersive, premium responsive website with cinematic scroll-driven background video playback and frosted-glass aesthetics.">
+    <title>We Here | Immersive Cinematic Scroll Experience</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- STICKY NAVIGATION BAR -->
+    <header class="header-nav" id="main-nav">
+        <div class="container">
+            <a href="#" class="logo" id="nav-logo-wrap">
+                <img src="assets/main-logo.webp" alt="Wehere Media Logo" class="logo-img" id="nav-logo"
+                    style="opacity: 0; height: 100px; width: auto;" />
+            </a>
+
+            <nav class="nav-links">
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link active-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- UNIFIED APP SCROLLER WRAPPER -->
+    <div class="app-scroller">
+
+        <!-- FIXED/STICKY VIEWPORT CONTAINER FOR DESKTOP SCROLLYTELLING -->
+        <div class="viewport-container" id="viewport-container">
+
+            <!-- HERO STICKY STAGE -->
+            <div class="hero-sticky-container" id="hero-sticky">
+                <!-- Background Video -->
+                <video class="hero-video-bg" id="hero-video" muted playsinline preload="auto"
+                    src="assets/We Here SITE.mp4"></video>
+
+                <!-- Dark Contrast Overlay -->
+                <div class="hero-overlay"></div>
+
+                <!-- Scrollytelling Overlay Slides -->
+                <div class="hero-slides-wrapper">
+                    <!-- Slide 1 (SEO Optimized Main Presentation) -->
+                    <div class="hero-slide active" data-peak="0.50">
+                        <span class="slide-tag" id="hero-tag">Creative Tech Studio</span>
+                        <div class="hero-logo-placeholder">
+                            <img src="assets/main-logo.webp" alt="Wehere Media Logo" class="hero-logo-img"
+                                id="hero-logo-placeholder" />
+                        </div>
+                        <h1 id="hero-heading" style="opacity: 0; transform: translateY(-172px);">
+                            <span class="gradient-accent-text">Immersive Web</span>
+                            <span class="stroke-only-text">Experiences</span>
+                        </h1>
+                        <a href="#experience" class="btn btn-primary" id="hero-cta"
+                            style="opacity: 0; transform: translateY(20px);">Begin the Scroll</a>
+                    </div>
+                </div>
+
+                <!-- Scroll Indicator -->
+                <div class="scroll-indicator" id="scroll-indicator">
+                    <span>Scroll Down</span>
+                    <div class="scroll-mouse">
+                        <div class="scroll-wheel"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THE REVEALING / TRANSITIONING PANEL -->
+            <!-- Emerges from the bottom-right corner of the hero section and expands to cover the screen -->
+            <div class="transitioning-panel" id="transitioning-panel">
+                <div class="horizontal-slides-container" id="horizontal-slides">
+
+                    <!-- SERVICES INTRO PANEL -->
+                    <div class="horizontal-slide-panel services-intro-panel" id="services-intro-panel">
+                        <section class="features-section" id="experience" style="width: 100%;">
+                            <div class="container">
+                                <div class="section-header services-intro-header">
+                                    <span class="section-tag">What We Offer</span>
+                                    <h2 class="section-title gradient-text">Our Digital Marketing Services</h2>
+                                    <p class="section-desc">Scroll to explore each service in detail.</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- SERVICE PANEL 01 -->
+                    <div class="horizontal-slide-panel service-slide-panel panel-light" id="service-seo-panel">
+                        <section class="service-panel-section">
+                            <div class="service-panel-inner sp-layout">
+                                <div class="sp-top">
+                                    <div class="sp-brand">WE HERE</div>
+                                    <p class="sp-desc">Improve your rankings, organic traffic, and website visibility on
+                                        Google through data-driven SEO strategies and technical optimization.</p>
+                                    <a href="services/seo.html" class="sp-arrow">↗</a>
+                                </div>
+                                <div class="sp-image-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop"
+                                        alt="Optimization" class="sp-image">
+                                </div>
+                                <div class="sp-bottom">
+                                    <span class="sp-label">SEARCH ENGINE</span>
+                                    <h3 class="sp-title">Optimization</h3>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- SERVICE PANEL 02 -->
+                    <div class="horizontal-slide-panel service-slide-panel panel-dark" id="service-social-panel">
+                        <section class="service-panel-section">
+                            <div class="service-panel-inner sp-layout">
+                                <div class="sp-top">
+                                    <div class="sp-brand">WE HERE</div>
+                                    <p class="sp-desc">Build brand awareness and engagement across Instagram, Facebook,
+                                        LinkedIn, and more with compelling creative campaigns.</p>
+                                    <a href="services/social-media-marketing.html" class="sp-arrow">↗</a>
+                                </div>
+                                <div class="sp-image-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2574&auto=format&fit=crop"
+                                        alt="Marketing" class="sp-image">
+                                </div>
+                                <div class="sp-bottom">
+                                    <span class="sp-label">SOCIAL MEDIA</span>
+                                    <h3 class="sp-title">Marketing</h3>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- SERVICE PANEL 03 -->
+                    <div class="horizontal-slide-panel service-slide-panel panel-light" id="service-performance-panel">
+                        <section class="service-panel-section">
+                            <div class="service-panel-inner sp-layout">
+                                <div class="sp-top">
+                                    <div class="sp-brand">WE HERE</div>
+                                    <p class="sp-desc">Run data-driven ad campaigns focused on leads, sales, and
+                                        measurable ROI across Google, Meta, and LinkedIn platforms.</p>
+                                    <a href="services/performance-marketing.html" class="sp-arrow">↗</a>
+                                </div>
+                                <div class="sp-image-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop"
+                                        alt="Marketing" class="sp-image">
+                                </div>
+                                <div class="sp-bottom">
+                                    <span class="sp-label">PERFORMANCE</span>
+                                    <h3 class="sp-title">Marketing</h3>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- SERVICE PANEL 04 -->
+                    <div class="horizontal-slide-panel service-slide-panel panel-dark" id="service-content-panel">
+                        <section class="service-panel-section">
+                            <div class="service-panel-inner sp-layout">
+                                <div class="sp-top">
+                                    <div class="sp-brand">WE HERE</div>
+                                    <p class="sp-desc">Create blogs, website content, captions, reels, scripts, and
+                                        brand communication that converts your audience.</p>
+                                    <a href="services/content-marketing.html" class="sp-arrow">↗</a>
+                                </div>
+                                <div class="sp-image-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1542435503-956c469947f6?q=80&w=2574&auto=format&fit=crop"
+                                        alt="Strategy" class="sp-image">
+                                </div>
+                                <div class="sp-bottom">
+                                    <span class="sp-label">CONTENT</span>
+                                    <h3 class="sp-title">Strategy</h3>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- SERVICE PANEL 05 -->
+                    <div class="horizontal-slide-panel service-slide-panel panel-light" id="service-web-panel">
+                        <section class="service-panel-section">
+                            <div class="service-panel-inner sp-layout">
+                                <div class="sp-top">
+                                    <div class="sp-brand">WE HERE</div>
+                                    <p class="sp-desc">Design and develop high-converting, fast, and secure websites
+                                        that serve as your ultimate digital storefront.</p>
+                                    <a href="services/website-design-development.html" class="sp-arrow">↗</a>
+                                </div>
+                                <div class="sp-image-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=2564&auto=format&fit=crop"
+                                        alt="Development" class="sp-image">
+                                </div>
+                                <div class="sp-bottom">
+                                    <span class="sp-label">FRONTEND & UI</span>
+                                    <h3 class="sp-title">Development</h3>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- SERVICE PANEL 06 -->
+                    <div class="horizontal-slide-panel service-slide-panel panel-dark" id="service-branding-panel">
+                        <section class="service-panel-section">
+                            <div class="service-panel-inner sp-layout">
+                                <div class="sp-top">
+                                    <div class="sp-brand">WE HERE</div>
+                                    <p class="sp-desc">Develop strong brand messaging, campaign concepts, visual
+                                        direction, and ad creatives that stand out.</p>
+                                    <a href="services/branding.html" class="sp-arrow">↗</a>
+                                </div>
+                                <div class="sp-image-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2000&auto=format&fit=crop"
+                                        alt="Branding" class="sp-image">
+                                </div>
+                                <div class="sp-bottom">
+                                    <span class="sp-label">CREATIVE</span>
+                                    <h3 class="sp-title">Branding</h3>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- SERVICE PANEL 07 -->
+                    <div class="horizontal-slide-panel service-slide-panel panel-light" id="service-google-panel">
+                        <section class="service-panel-section">
+                            <div class="service-panel-inner sp-layout">
+                                <div class="sp-top">
+                                    <div class="sp-brand">WE HERE</div>
+                                    <p class="sp-desc">Reach high-intent customers through search, display, YouTube, and
+                                        remarketing campaigns.</p>
+                                    <a href="services/google-ads.html" class="sp-arrow">↗</a>
+                                </div>
+                                <div class="sp-image-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?q=80&w=2627&auto=format&fit=crop"
+                                        alt="Google Ads" class="sp-image">
+                                </div>
+                                <div class="sp-bottom">
+                                    <span class="sp-label">SEARCH & DISPLAY</span>
+                                    <h3 class="sp-title">Google Ads</h3>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- SERVICE PANEL 08 -->
+                    <div class="horizontal-slide-panel service-slide-panel panel-dark" id="service-meta-panel">
+                        <section class="service-panel-section">
+                            <div class="service-panel-inner sp-layout">
+                                <div class="sp-top">
+                                    <div class="sp-brand">WE HERE</div>
+                                    <p class="sp-desc">Generate leads and sales through high-converting Facebook and
+                                        Instagram advertising campaigns.</p>
+                                    <a href="services/meta-ads.html" class="sp-arrow">↗</a>
+                                </div>
+                                <div class="sp-image-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?q=80&w=2574&auto=format&fit=crop"
+                                        alt="Meta Ads" class="sp-image">
+                                </div>
+                                <div class="sp-bottom">
+                                    <span class="sp-label">SOCIAL CAMPAIGNS</span>
+                                    <h3 class="sp-title">Meta Ads</h3>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <!-- PANEL 2: INTERACTIVE SHOWCASE UI PLAYGROUND -->
+                    <div class="horizontal-slide-panel full-slide-panel" id="showcase-panel">
+                        <section class="showcase-section" id="showcase" style="width: 100%;">
+                            <div class="container">
+                                <div class="showcase-wrapper">
+                                    <div class="showcase-content">
+                                        <span class="section-tag">Interactive Showcase</span>
+                                        <h2 class="section-title gradient-text">A Stunning UI Playground</h2>
+                                        <p class="section-desc" style="margin-bottom: 2rem;">Hover, scroll, and click.
+                                            This page is designed to feel highly alive, responding to every gesture with
+                                            delightful micro-interactions.</p>
+
+                                        <ul
+                                            style="list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+                                            <li style="display: flex; align-items: center; gap: 0.8rem;">
+                                                <span style="color: var(--color-secondary); font-size: 1.2rem;">✔</span>
+                                                <span>Ultra-Smooth WebGL/HTML5 Sync</span>
+                                            </li>
+                                            <li style="display: flex; align-items: center; gap: 0.8rem;">
+                                                <span style="color: var(--color-secondary); font-size: 1.2rem;">✔</span>
+                                                <span>Zero Autoplay Obstruction Issues</span>
+                                            </li>
+                                            <li style="display: flex; align-items: center; gap: 0.8rem;">
+                                                <span style="color: var(--color-secondary); font-size: 1.2rem;">✔</span>
+                                                <span>Tailored, Dark Theme Nightfall Colorways</span>
+                                            </li>
+                                        </ul>
+
+                                        <a href="mailto:hello@wehere.com" class="btn btn-primary">Start a Project</a>
+                                    </div>
+
+                                    <div class="showcase-media">
+                                        <div class="mac-frame">
+                                            <div class="mac-header">
+                                                <span class="mac-dots"></span>
+                                            </div>
+                                            <div class="showcase-inner-image">
+                                                <div class="floating-glass-card">
+                                                    <div class="glass-header">
+                                                        <span style="font-weight:600; font-size:0.8rem;">Interactive
+                                                            State</span>
+                                                        <span class="glass-pill">Operational</span>
+                                                    </div>
+                                                    <div class="glass-body">
+                                                        <div class="glass-row"></div>
+                                                        <div class="glass-row"></div>
+                                                        <div class="glass-row"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- VERTICAL SCROLL TRACK FOR SCRUBBING -->
+        <div class="scroll-track" id="scroll-track"></div>
+
+        <!-- PROBLEM SECTION — overlaps previous panel on scroll (desktop) -->
+        <section class="overlay-section problem-section" id="problem" style="background: #000; color: #fff;">
+            <div class="container"
+                style="max-width: 1400px; padding-top: calc(var(--header-height) + 1rem); padding-bottom: 1rem;">
+
+                <div class="sp-top"
+                    style="position: relative; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; overflow: hidden;">
+                    <img src="assets/dashboard-graphic.png" alt=""
+                        style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); max-width: 600px; width: 100%; opacity: 0.5; mix-blend-mode: screen; pointer-events: none; z-index: 0; object-fit: contain;">
+                    <div style="position: relative; z-index: 1;">
+                        <p class="sp-label" style="color: #a855f7; font-size: 0.8rem;">⚡ THE CHALLENGE</p>
+                        <h2 class="sp-title"
+                            style="font-size: clamp(2rem, 4.5vw, 4.5rem); letter-spacing: -0.02em; line-height: 1.1;">
+                            Struggling to get results<br>from your marketing?</h2>
+                    </div>
+                </div>
+
+                <div class="problem-bento"
+                    style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1);">
+
+                    <div class="p-card"
+                        style="background: var(--color-bg-base); padding: 2.5rem 2rem; min-height: 220px; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <span
+                            style="font-family: 'Orbitron', sans-serif; font-size: 3rem; color: rgba(255,255,255,0.05); position: absolute; top: 0.5rem; right: 1rem; line-height: 1; pointer-events: none;">01</span>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0; color: #fff;">Wasted Ad Spend</h3>
+                        <p style="font-size: 0.9rem; color: #a1a1aa; margin: 0; line-height: 1.4;">Your ads are burning
+                            budget with minimal conversions and no clear ROI visibility.</p>
+                    </div>
+
+                    <div class="p-card"
+                        style="background: var(--color-bg-base); padding: 2.5rem 2rem; min-height: 220px; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <span
+                            style="font-family: 'Orbitron', sans-serif; font-size: 3rem; color: rgba(255,255,255,0.05); position: absolute; top: 0.5rem; right: 1rem; line-height: 1; pointer-events: none;">02</span>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0; color: #fff;">Invisible on Google
+                        </h3>
+                        <p style="font-size: 0.9rem; color: #a1a1aa; margin: 0; line-height: 1.4;">Your website is
+                            invisible on search engines while competitors dominate page one.</p>
+                    </div>
+
+                    <div class="p-card"
+                        style="background: var(--color-bg-base); padding: 2.5rem 2rem; min-height: 220px; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <span
+                            style="font-family: 'Orbitron', sans-serif; font-size: 3rem; color: rgba(255,255,255,0.05); position: absolute; top: 0.5rem; right: 1rem; line-height: 1; pointer-events: none;">03</span>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0; color: #fff;">Zero Engagement</h3>
+                        <p style="font-size: 0.9rem; color: #a1a1aa; margin: 0; line-height: 1.4;">Social media content
+                            gets posted but generates zero meaningful audience engagement.</p>
+                    </div>
+
+                    <div class="p-card"
+                        style="background: var(--color-bg-base); padding: 2.5rem 2rem; min-height: 220px; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <span
+                            style="font-family: 'Orbitron', sans-serif; font-size: 3rem; color: rgba(255,255,255,0.05); position: absolute; top: 0.5rem; right: 1rem; line-height: 1; pointer-events: none;">04</span>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0; color: #fff;">Stagnant Pipeline</h3>
+                        <p style="font-size: 0.9rem; color: #a1a1aa; margin: 0; line-height: 1.4;">Competitors are
+                            rapidly scaling leads while your sales pipeline stays completely stagnant.</p>
+                    </div>
+
+                    <div class="p-card"
+                        style="background: var(--color-bg-base); padding: 2.5rem 2rem; min-height: 220px; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <span
+                            style="font-family: 'Orbitron', sans-serif; font-size: 3rem; color: rgba(255,255,255,0.05); position: absolute; top: 0.5rem; right: 1rem; line-height: 1; pointer-events: none;">05</span>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0; color: #fff;">Scattered Branding
+                        </h3>
+                        <p style="font-size: 0.9rem; color: #a1a1aa; margin: 0; line-height: 1.4;">Your brand message is
+                            scattered with no consistent voice across digital channels.</p>
+                    </div>
+
+                    <div class="p-card"
+                        style="background: var(--color-bg-base); padding: 2.5rem 2rem; min-height: 220px; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 0.75rem;">
+                        <span
+                            style="font-family: 'Orbitron', sans-serif; font-size: 3rem; color: rgba(255,255,255,0.05); position: absolute; top: 0.5rem; right: 1rem; line-height: 1; pointer-events: none;">06</span>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0; color: #fff;">Vanity Metrics</h3>
+                        <p style="font-size: 0.9rem; color: #a1a1aa; margin: 0; line-height: 1.4;">Current agency
+                            reports show vanity metrics but zero real business growth proof.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY CHOOSE US — overlaps problem section on scroll (desktop) -->
+        <section class="overlay-section why-choose-section" id="why-choose-us" style="background: #fff; color: #000;">
+            <div class="container"
+                style="max-width: 1400px; padding-top: calc(var(--header-height) + 1rem); padding-bottom: 1rem;">
+
+                <div class="sp-top"
+                    style="position: relative; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 1rem; overflow: hidden;">
+                    <img src="assets/solution-graphic.png" alt=""
+                        style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); max-width: 600px; width: 100%; opacity: 0.5; mix-blend-mode: multiply; pointer-events: none; z-index: 0; object-fit: contain;">
+                    <div style="position: relative; z-index: 1;">
+                        <p class="sp-label" style="color: #a855f7; font-size: 0.8rem; font-weight: 800;">✓ THE SOLUTION
+                        </p>
+                        <h2 class="sp-title"
+                            style="font-size: clamp(2rem, 4.5vw, 4.5rem); letter-spacing: -0.02em; line-height: 1.1; color: #000;">
+                            Why choose WeHere<br>as your partner?</h2>
+                    </div>
+                </div>
+
+                <div class="problem-bento"
+                    style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.1);">
+
+                    <div class="p-card light-card"
+                        style="background: #ffffff; padding: 2.5rem 2rem; min-height: 220px; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <span
+                            style="font-family: 'Orbitron', sans-serif; font-size: 3rem; color: rgba(0,0,0,0.03); position: absolute; top: 0.5rem; right: 1rem; line-height: 1; pointer-events: none;">01</span>
+                        <h3
+                            style="font-size: 1.15rem; font-weight: 800; margin: 0; color: #000; text-transform: uppercase;">
+                            Strategy-First</h3>
+                        <p style="font-size: 0.85rem; color: #52525b; margin: 0; line-height: 1.4;">No execution without
+                            a clear, data-driven roadmap.</p>
+                    </div>
+                    <div class="p-card light-card"
+                        style="background: #ffffff; padding: 2.5rem 2rem; min-height: 220px; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <span
+                            style="font-family: 'Orbitron', sans-serif; font-size: 3rem; color: rgba(0,0,0,0.03); position: absolute; top: 0.5rem; right: 1rem; line-height: 1; pointer-events: none;">02</span>
+                        <h3
+                            style="font-size: 1.15rem; font-weight: 800; margin: 0; color: #000; text-transform: uppercase;">
+                            Creative Ads</h3>
+                        <p style="font-size: 0.85rem; color: #52525b; margin: 0; line-height: 1.4;">Campaigns that
+                            actually resonate and convert real audiences.</p>
+                    </div>
+                    <div class="p-card light-card"
+                        style="background: #ffffff; padding: 2.5rem 2rem; min-height: 220px; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <span
+                            style="font-family: 'Orbitron', sans-serif; font-size: 3rem; color: rgba(0,0,0,0.03); position: absolute; top: 0.5rem; right: 1rem; line-height: 1; pointer-events: none;">03</span>
+                        <h3
+                            style="font-size: 1.15rem; font-weight: 800; margin: 0; color: #000; text-transform: uppercase;">
+                            SEO Engine</h3>
+                        <p style="font-size: 0.85rem; color: #52525b; margin: 0; line-height: 1.4;">Content architecture
+                            built for sustainable organic growth.</p>
+                    </div>
+                    <div class="p-card light-card"
+                        style="background: #ffffff; padding: 2.5rem 2rem; min-height: 220px; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <span
+                            style="font-family: 'Orbitron', sans-serif; font-size: 3rem; color: rgba(0,0,0,0.03); position: absolute; top: 0.5rem; right: 1rem; line-height: 1; pointer-events: none;">04</span>
+                        <h3
+                            style="font-size: 1.15rem; font-weight: 800; margin: 0; color: #000; text-transform: uppercase;">
+                            ROAS Focus</h3>
+                        <p style="font-size: 0.85rem; color: #52525b; margin: 0; line-height: 1.4;">Performance
+                            campaigns laser-focused on leads and sales.</p>
+                    </div>
+                    <div class="p-card light-card"
+                        style="background: #ffffff; padding: 2.5rem 2rem; min-height: 220px; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <span
+                            style="font-family: 'Orbitron', sans-serif; font-size: 3rem; color: rgba(0,0,0,0.03); position: absolute; top: 0.5rem; right: 1rem; line-height: 1; pointer-events: none;">05</span>
+                        <h3
+                            style="font-size: 1.15rem; font-weight: 800; margin: 0; color: #000; text-transform: uppercase;">
+                            Transparency</h3>
+                        <p style="font-size: 0.85rem; color: #52525b; margin: 0; line-height: 1.4;">Crystal clear
+                            reporting with real revenue attribution models.</p>
+                    </div>
+                    <div class="p-card light-card"
+                        style="background: #ffffff; padding: 2.5rem 2rem; min-height: 220px; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <span
+                            style="font-family: 'Orbitron', sans-serif; font-size: 3rem; color: rgba(0,0,0,0.03); position: absolute; top: 0.5rem; right: 1rem; line-height: 1; pointer-events: none;">06</span>
+                        <h3
+                            style="font-size: 1.15rem; font-weight: 800; margin: 0; color: #000; text-transform: uppercase;">
+                            Deep Intel</h3>
+                        <p style="font-size: 0.85rem; color: #52525b; margin: 0; line-height: 1.4;">Thorough industry
+                            research and competitor intelligence analysis.</p>
+                    </div>
+                    <div class="p-card light-card"
+                        style="background: #ffffff; padding: 2.5rem 2rem; min-height: 220px; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <span
+                            style="font-family: 'Orbitron', sans-serif; font-size: 3rem; color: rgba(0,0,0,0.03); position: absolute; top: 0.5rem; right: 1rem; line-height: 1; pointer-events: none;">07</span>
+                        <h3
+                            style="font-size: 1.15rem; font-weight: 800; margin: 0; color: #000; text-transform: uppercase;">
+                            AI Workflows</h3>
+                        <p style="font-size: 0.85rem; color: #52525b; margin: 0; line-height: 1.4;">Proprietary
+                            AI-powered marketing workflows for speed and precision.</p>
+                    </div>
+                    <div class="p-card light-card"
+                        style="background: #ffffff; padding: 2.5rem 2rem; min-height: 220px; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 0.5rem;">
+                        <span
+                            style="font-family: 'Orbitron', sans-serif; font-size: 3rem; color: rgba(0,0,0,0.03); position: absolute; top: 0.5rem; right: 1rem; line-height: 1; pointer-events: none;">08</span>
+                        <h3
+                            style="font-size: 1.15rem; font-weight: 800; margin: 0; color: #000; text-transform: uppercase;">
+                            Growth Focus</h3>
+                        <p style="font-size: 0.85rem; color: #52525b; margin: 0; line-height: 1.4;">Unwavering real
+                            business growth focus—not just vanity metrics.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS — overlaps why choose us, 6 narrow steps scroll right to left -->
+        <section class="process-section" id="process">
+            <div class="process-section-shell">
+                <div class="process-section-header">
+                    <span class="section-tag">How We Work</span>
+                    <h2 class="section-title gradient-text">Our Digital Marketing Process</h2>
+                </div>
+                <div class="process-slides-viewport">
+                    <div class="process-slides-track" id="process-slides">
+                        <article class="process-step-panel">
+                            <div class="process-step-header">
+                                <span class="process-step-num">01</span>
+                                <h3>Business Discovery</h3>
+                            </div>
+                            <p>Deep-dive into your business model, audience personas, market dynamics, growth goals, and
+                                current digital footprint.</p>
+                            <div class="process-step-details">
+                                <h4>Key Activities</h4>
+                                <ul>
+                                    <li>Market &amp; Competitor Analysis</li>
+                                    <li>Audience Persona Development</li>
+                                    <li>KPI &amp; Growth Goal Setting</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="process-step-panel">
+                            <div class="process-step-header">
+                                <span class="process-step-num">02</span>
+                                <h3>Website &amp; Competitor Audit</h3>
+                            </div>
+                            <p>Comprehensive technical SEO audit, competitor keyword mapping, content gap analysis, and
+                                conversion funnel review.</p>
+                            <div class="process-step-details">
+                                <h4>Key Activities</h4>
+                                <ul>
+                                    <li>Technical SEO Audit</li>
+                                    <li>Keyword Gap Analysis</li>
+                                    <li>Conversion Funnel Review</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="process-step-panel">
+                            <div class="process-step-header">
+                                <span class="process-step-num">03</span>
+                                <h3>Strategy Planning</h3>
+                            </div>
+                            <p>Custom digital marketing blueprint aligned to your budget, timelines, KPIs, and business
+                                growth milestones.</p>
+                            <div class="process-step-details">
+                                <h4>Key Activities</h4>
+                                <ul>
+                                    <li>Multi-Channel Roadmap</li>
+                                    <li>Budget &amp; Resource Allocation</li>
+                                    <li>Content &amp; Creative Direction</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="process-step-panel">
+                            <div class="process-step-header">
+                                <span class="process-step-num">04</span>
+                                <h3>Campaign Execution</h3>
+                            </div>
+                            <p>Launch SEO, paid ads, social campaigns, content engines, website updates, and creative
+                                assets across all channels.</p>
+                            <div class="process-step-details">
+                                <h4>Key Activities</h4>
+                                <ul>
+                                    <li>Ad Account Setup &amp; Launch</li>
+                                    <li>SEO Implementation</li>
+                                    <li>Social Media Rollout</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="process-step-panel">
+                            <div class="process-step-header">
+                                <span class="process-step-num">05</span>
+                                <h3>Tracking &amp; Optimization</h3>
+                            </div>
+                            <p>Real-time performance monitoring, A/B creative testing, bid optimization, and continuous
+                                ROAS improvement cycles.</p>
+                            <div class="process-step-details">
+                                <h4>Key Activities</h4>
+                                <ul>
+                                    <li>A/B Testing &amp; Scaling</li>
+                                    <li>Bid &amp; Budget Adjustments</li>
+                                    <li>Conversion Rate Optimization</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="process-step-panel">
+                            <div class="process-step-header">
+                                <span class="process-step-num">06</span>
+                                <h3>Monthly Reporting</h3>
+                            </div>
+                            <p>Transparent dashboards showing traffic, leads, conversions, revenue attribution,
+                                rankings, and campaign insights.</p>
+                            <div class="process-step-details">
+                                <h4>Key Activities</h4>
+                                <ul>
+                                    <li>Custom Analytics Dashboards</li>
+                                    <li>ROI &amp; ROAS Tracking</li>
+                                    <li>Strategic Growth Insights</li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INDUSTRIES — overlaps process section on scroll -->
+        <section class="overlay-section industries-section" id="industries" style="background: #000; color: #fff;">
+            <div class="container"
+                style="max-width: 1400px; padding-top: calc(var(--header-height) + 1rem); padding-bottom: 2rem;">
+
+                <div class="sp-top"
+                    style="position: relative; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; overflow: hidden;">
+                    <img src="assets/dashboard-graphic.png" alt=""
+                        style="position: absolute; top: -20%; right: 0; max-width: 600px; width: 100%; opacity: 0.4; mix-blend-mode: screen; pointer-events: none; z-index: 0; object-fit: contain;">
+                    <div style="position: relative; z-index: 1;">
+                        <p class="sp-label" style="color: #a855f7; font-size: 0.8rem;">⚡ INDUSTRIES WE SERVE</p>
+                        <h2 class="sp-title"
+                            style="font-size: clamp(2rem, 4.5vw, 4.5rem); letter-spacing: -0.02em; line-height: 1.1;">
+                            Who do we help<br>scale faster?</h2>
+                    </div>
+                </div>
+
+                <div class="industries-bento"
+                    style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1);">
+
+                    <a href="industries/e-commerce.html" class="i-card"
+                        style="background: var(--color-bg-base); padding: 2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; text-decoration: none;">
+                        <span
+                            style="font-size: 1.15rem; font-weight: 800; color: #fff; text-transform: uppercase;">E-commerce</span>
+                        <span class="i-arrow" style="color: #52525b; font-size: 1.5rem;">↗</span>
+                    </a>
+                    <a href="industries/real-estate.html" class="i-card"
+                        style="background: var(--color-bg-base); padding: 2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; text-decoration: none;">
+                        <span style="font-size: 1.15rem; font-weight: 800; color: #fff; text-transform: uppercase;">Real
+                            Estate</span>
+                        <span class="i-arrow" style="color: #52525b; font-size: 1.5rem;">↗</span>
+                    </a>
+                    <a href="industries/healthcare.html" class="i-card"
+                        style="background: var(--color-bg-base); padding: 2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; text-decoration: none;">
+                        <span
+                            style="font-size: 1.15rem; font-weight: 800; color: #fff; text-transform: uppercase;">Healthcare</span>
+                        <span class="i-arrow" style="color: #52525b; font-size: 1.5rem;">↗</span>
+                    </a>
+                    <a href="industries/education.html" class="i-card"
+                        style="background: var(--color-bg-base); padding: 2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; text-decoration: none;">
+                        <span
+                            style="font-size: 1.15rem; font-weight: 800; color: #fff; text-transform: uppercase;">Education</span>
+                        <span class="i-arrow" style="color: #52525b; font-size: 1.5rem;">↗</span>
+                    </a>
+                    <a href="industries/hospitality.html" class="i-card"
+                        style="background: var(--color-bg-base); padding: 2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; text-decoration: none;">
+                        <span
+                            style="font-size: 1.15rem; font-weight: 800; color: #fff; text-transform: uppercase;">Hospitality</span>
+                        <span class="i-arrow" style="color: #52525b; font-size: 1.5rem;">↗</span>
+                    </a>
+                    <a href="industries/automotive.html" class="i-card"
+                        style="background: var(--color-bg-base); padding: 2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; text-decoration: none;">
+                        <span
+                            style="font-size: 1.15rem; font-weight: 800; color: #fff; text-transform: uppercase;">Automotive</span>
+                        <span class="i-arrow" style="color: #52525b; font-size: 1.5rem;">↗</span>
+                    </a>
+                    <a href="industries/finance.html" class="i-card"
+                        style="background: var(--color-bg-base); padding: 2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; text-decoration: none;">
+                        <span
+                            style="font-size: 1.15rem; font-weight: 800; color: #fff; text-transform: uppercase;">Finance</span>
+                        <span class="i-arrow" style="color: #52525b; font-size: 1.5rem;">↗</span>
+                    </a>
+                    <a href="industries/local-businesses.html" class="i-card"
+                        style="background: var(--color-bg-base); padding: 2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; text-decoration: none;">
+                        <span
+                            style="font-size: 1.15rem; font-weight: 800; color: #fff; text-transform: uppercase;">Local
+                            Biz</span>
+                        <span class="i-arrow" style="color: #52525b; font-size: 1.5rem;">↗</span>
+                    </a>
+                    <a href="industries/political-campaigns.html" class="i-card"
+                        style="background: var(--color-bg-base); padding: 2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; text-decoration: none;">
+                        <span
+                            style="font-size: 1.15rem; font-weight: 800; color: #fff; text-transform: uppercase;">Politics</span>
+                        <span class="i-arrow" style="color: #52525b; font-size: 1.5rem;">↗</span>
+                    </a>
+                    <a href="industries/personal-brands.html" class="i-card"
+                        style="background: var(--color-bg-base); padding: 2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; text-decoration: none;">
+                        <span
+                            style="font-size: 1.15rem; font-weight: 800; color: #fff; text-transform: uppercase;">Brands</span>
+                        <span class="i-arrow" style="color: #52525b; font-size: 1.5rem;">↗</span>
+                    </a>
+                    <a href="industries/saas-technology.html" class="i-card"
+                        style="background: var(--color-bg-base); padding: 2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; text-decoration: none;">
+                        <span style="font-size: 1.15rem; font-weight: 800; color: #fff; text-transform: uppercase;">SaaS
+                            & Tech</span>
+                        <span class="i-arrow" style="color: #52525b; font-size: 1.5rem;">↗</span>
+                    </a>
+                    <a href="industries/luxury-services.html" class="i-card"
+                        style="background: var(--color-bg-base); padding: 2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; text-decoration: none;">
+                        <span
+                            style="font-size: 1.15rem; font-weight: 800; color: #fff; text-transform: uppercase;">Luxury</span>
+                        <span class="i-arrow" style="color: #52525b; font-size: 1.5rem;">↗</span>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CASE STUDIES — overlaps industries section on scroll -->
+        <section class="overlay-section case-studies-section" id="case-studies" style="background: #fff; color: #000;">
+            <div class="container"
+                style="max-width: 1400px; padding-top: calc(var(--header-height) + 1rem); padding-bottom: 2rem;">
+
+                <div class="sp-top"
+                    style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 1rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                        <div>
+                            <p class="sp-label" style="color: #a855f7; font-size: 0.8rem; font-weight: 800;">✓ PROVEN
+                                RESULTS</p>
+                            <h2 class="sp-title"
+                                style="font-size: clamp(2rem, 4.5vw, 4.5rem); letter-spacing: -0.02em; line-height: 1.1; color: #000;">
+                                Our work speaks<br>through ROI.</h2>
+                        </div>
+                        <a href="case-studies.html" class="btn"
+                            style="background: #000; color: #fff; padding: 1rem 2rem; font-weight: 700; text-decoration: none; border-radius: 0;">VIEW
+                            ALL →</a>
+                    </div>
+                </div>
+
+                <div class="case-studies-bento"
+                    style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.1);">
+
+                    <div class="cs-card light-card"
+                        style="background: #ffffff; padding: 1.5rem; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 1rem; min-height: 220px;">
+                        <span
+                            style="font-family: 'Orbitron', sans-serif; font-size: 3rem; color: rgba(0,0,0,0.03); position: absolute; top: 0.5rem; right: 1rem; line-height: 1; pointer-events: none;">01</span>
+                        <div>
+                            <span
+                                style="display: inline-block; background: rgba(168, 85, 247, 0.1); color: #a855f7; padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.5rem;">E-Commerce</span>
+                            <h3
+                                style="font-size: 1.5rem; font-weight: 800; margin: 0; color: #000; text-transform: uppercase;">
+                                StyleVault India</h3>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            <p style="font-size: 0.9rem; color: #52525b; margin: 0; line-height: 1.4;"><strong
+                                    style="color:#000;">Challenge:</strong> Low website traffic and poor conversion from
+                                paid ads.</p>
+                            <p style="font-size: 0.9rem; color: #52525b; margin: 0; line-height: 1.4;"><strong
+                                    style="color:#000;">Strategy:</strong> SEO, performance marketing, and conversion
+                                landing pages.</p>
+                        </div>
+                        <div
+                            style="margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(0,0,0,0.1); display: flex; flex-direction: column; gap: 0.5rem;">
+                            <div
+                                style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; color: #000;">
+                                <span>Organic Traffic</span> <span style="color: #10b981;">+156%</span>
+                            </div>
+                            <div
+                                style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; color: #000;">
+                                <span>Lead Volume</span> <span style="color: #10b981;">+92%</span>
+                            </div>
+                            <div
+                                style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; color: #000;">
+                                <span>Ad Cost</span> <span style="color: #10b981;">-28%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cs-card light-card"
+                        style="background: #ffffff; padding: 1.5rem; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 1rem; min-height: 220px;">
+                        <span
+                            style="font-family: 'Orbitron', sans-serif; font-size: 3rem; color: rgba(0,0,0,0.03); position: absolute; top: 0.5rem; right: 1rem; line-height: 1; pointer-events: none;">02</span>
+                        <div>
+                            <span
+                                style="display: inline-block; background: rgba(168, 85, 247, 0.1); color: #a855f7; padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.5rem;">Real
+                                Estate</span>
+                            <h3
+                                style="font-size: 1.5rem; font-weight: 800; margin: 0; color: #000; text-transform: uppercase;">
+                                UrbanNest Realty</h3>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            <p style="font-size: 0.9rem; color: #52525b; margin: 0; line-height: 1.4;"><strong
+                                    style="color:#000;">Challenge:</strong> Inconsistent lead quality from broad,
+                                untargeted campaigns.</p>
+                            <p style="font-size: 0.9rem; color: #52525b; margin: 0; line-height: 1.4;"><strong
+                                    style="color:#000;">Strategy:</strong> Local SEO, geo-targeted Meta ads, and
+                                high-intent funnels.</p>
+                        </div>
+                        <div
+                            style="margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(0,0,0,0.1); display: flex; flex-direction: column; gap: 0.5rem;">
+                            <div
+                                style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; color: #000;">
+                                <span>Lead Quality</span> <span style="color: #10b981;">+87%</span>
+                            </div>
+                            <div
+                                style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; color: #000;">
+                                <span>Ad Cost</span> <span style="color: #10b981;">-34%</span>
+                            </div>
+                            <div
+                                style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; color: #000;">
+                                <span>Revenue Generated</span> <span style="color: #10b981;">₹2.4Cr</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cs-card light-card"
+                        style="background: #ffffff; padding: 1.5rem; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 1rem; min-height: 220px;">
+                        <span
+                            style="font-family: 'Orbitron', sans-serif; font-size: 3rem; color: rgba(0,0,0,0.03); position: absolute; top: 0.5rem; right: 1rem; line-height: 1; pointer-events: none;">03</span>
+                        <div>
+                            <span
+                                style="display: inline-block; background: rgba(168, 85, 247, 0.1); color: #a855f7; padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.5rem;">SaaS
+                                & Tech</span>
+                            <h3
+                                style="font-size: 1.5rem; font-weight: 800; margin: 0; color: #000; text-transform: uppercase;">
+                                FlowTrack SaaS</h3>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            <p style="font-size: 0.9rem; color: #52525b; margin: 0; line-height: 1.4;"><strong
+                                    style="color:#000;">Challenge:</strong> Weak brand awareness and low demo sign-ups
+                                from social.</p>
+                            <p style="font-size: 0.9rem; color: #52525b; margin: 0; line-height: 1.4;"><strong
+                                    style="color:#000;">Strategy:</strong> Content marketing, LinkedIn ads, and
+                                retargeting flows.</p>
+                        </div>
+                        <div
+                            style="margin-top: auto; padding-top: 1rem; border-top: 1px solid rgba(0,0,0,0.1); display: flex; flex-direction: column; gap: 0.5rem;">
+                            <div
+                                style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; color: #000;">
+                                <span>Lead Volume</span> <span style="color: #10b981;">+74%</span>
+                            </div>
+                            <div
+                                style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; color: #000;">
+                                <span>Social Followers</span> <span style="color: #10b981;">+210%</span>
+                            </div>
+                            <div
+                                style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; color: #000;">
+                                <span>Organic Traffic</span> <span style="color: #10b981;">+98%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+
+    <!-- SITE TAIL — unique scroll experience after scrollytelling -->
+    <div class="site-tail" id="site-tail">
+
+        <!-- 10. RESULTS — animated stat marquee band -->
+        <section class="tail-section tail-results" id="results">
+            <div class="tail-results-band">
+                <div class="stats-marquee" aria-hidden="true">
+                    <div class="stats-marquee-track">
+                        <div class="marquee-stat"><strong>50+</strong><span>Clients Served</span></div>
+                        <div class="marquee-stat"><strong>₹10Cr+</strong><span>Revenue Generated</span></div>
+                        <div class="marquee-stat"><strong>100+</strong><span>Brand Campaigns</span></div>
+                        <div class="marquee-stat"><strong>85+</strong><span>E-commerce Campaigns</span></div>
+                        <div class="marquee-stat"><strong>360°</strong><span>SEO &amp; Performance</span></div>
+                        <div class="marquee-stat"><strong>50+</strong><span>Clients Served</span></div>
+                        <div class="marquee-stat"><strong>₹10Cr+</strong><span>Revenue Generated</span></div>
+                        <div class="marquee-stat"><strong>100+</strong><span>Brand Campaigns</span></div>
+                        <div class="marquee-stat"><strong>85+</strong><span>E-commerce Campaigns</span></div>
+                        <div class="marquee-stat"><strong>360°</strong><span>SEO &amp; Performance</span></div>
+                        <div class="marquee-stat"><strong>50+</strong><span>Clients Served</span></div>
+                        <div class="marquee-stat"><strong>₹10Cr+</strong><span>Revenue Generated</span></div>
+                        <div class="marquee-stat"><strong>100+</strong><span>Brand Campaigns</span></div>
+                        <div class="marquee-stat"><strong>85+</strong><span>E-commerce Campaigns</span></div>
+                        <div class="marquee-stat"><strong>360°</strong><span>SEO &amp; Performance</span></div>
+                        <div class="marquee-stat"><strong>50+</strong><span>Clients Served</span></div>
+                        <div class="marquee-stat"><strong>₹10Cr+</strong><span>Revenue Generated</span></div>
+                        <div class="marquee-stat"><strong>100+</strong><span>Brand Campaigns</span></div>
+                        <div class="marquee-stat"><strong>85+</strong><span>E-commerce Campaigns</span></div>
+                        <div class="marquee-stat"><strong>360°</strong><span>SEO &amp; Performance</span></div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="container tail-results-body">
+                <span class="section-tag">Results &amp; Proof</span>
+                <h2 class="section-title gradient-text">Marketing That Delivers Measurable Business Growth</h2>
+                <div class="results-highlight-grid">
+                    <div class="result-highlight"><span class="result-num">50+</span><span class="result-label">Clients
+                            Served Globally</span></div>
+                    <div class="result-highlight"><span class="result-num">₹10Cr+</span><span
+                            class="result-label">Direct Sales Revenue Generated</span></div>
+                    <div class="result-highlight"><span class="result-num">100+</span><span
+                            class="result-label">Political &amp; Brand Campaigns</span></div>
+                    <div class="result-highlight"><span class="result-num">85+</span><span
+                            class="result-label">E-commerce Growth Campaigns</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. TESTIMONIALS — horizontal snap rail -->
+        <!-- <section class="tail-section tail-testimonials" id="testimonials">
+            <div class="container">
+                <div class="tail-section-head">
+                    <span class="section-tag">Client Stories</span>
+                    <h2 class="section-title gradient-text">What Our Clients Say</h2>
+                    <p class="tail-section-hint">Scroll sideways →</p>
+                </div>
+            </div>
+            <div class="testimonials-rail-wrap">
+                <div class="testimonials-rail">
+                    <article class="testimonial-slide">
+                        <div class="quote-mark">"</div>
+                        <p>Their SEO and ad strategy doubled our qualified leads in three months. Reporting was clear
+                            and the team was always proactive.</p>
+                        <div class="testimonial-slide-foot">
+                            <div class="testimonial-avatar">PS</div>
+                            <div><strong>Priya Sharma</strong><span>StyleVault India · SEO &amp; Performance
+                                    Marketing</span></div>
+                        </div>
+                    </article>
+                    <article class="testimonial-slide">
+                        <div class="quote-mark">"</div>
+                        <p>We finally started getting serious property inquiries from the right locations. Their local
+                            targeting approach made all the difference.</p>
+                        <div class="testimonial-slide-foot">
+                            <div class="testimonial-avatar">RK</div>
+                            <div><strong>Rahul Kapoor</strong><span>UrbanNest Realty · Google Ads &amp; Social
+                                    Media</span></div>
+                        </div>
+                    </article>
+                    <article class="testimonial-slide">
+                        <div class="quote-mark">"</div>
+                        <p>Content, LinkedIn ads, and landing page optimization helped us grow demos consistently
+                            without wasting budget.</p>
+                        <div class="testimonial-slide-foot">
+                            <div class="testimonial-avatar">AM</div>
+                            <div><strong>Ananya Mehta</strong><span>FlowTrack SaaS · Content &amp; Meta Ads</span></div>
+                        </div>
+                    </article>
+                    <article class="testimonial-slide">
+                        <div class="quote-mark">"</div>
+                        <p>Professional, transparent, and focused on revenue — not vanity metrics. Our ROAS improved
+                            significantly after onboarding.</p>
+                        <div class="testimonial-slide-foot">
+                            <div class="testimonial-avatar">VG</div>
+                            <div><strong>Vikram Gill</strong><span>Northline Foods · Performance Marketing</span></div>
+                        </div>
+                    </article>
+                    <article class="testimonial-slide">
+                        <div class="quote-mark">"</div>
+                        <p>From strategy to execution, they understood our brand voice and delivered campaigns that
+                            actually converted.</p>
+                        <div class="testimonial-slide-foot">
+                            <div class="testimonial-avatar">NK</div>
+                            <div><strong>Neha Kaur</strong><span>Bloom Salon · Branding &amp; Social Media</span></div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- 12. LOCATION SEO — split radar visual -->
+        <section class="tail-section tail-location" id="location-seo" style="overflow: hidden;">
+            <div class="container location-split">
+                <div class="location-copy tail-reveal" style="min-width: 0;">
+                    <span class="section-tag">Local &amp; Global Reach</span>
+                    <h2 class="section-title gradient-text">India-Based Agency Powering Global Digital Growth</h2>
+                    <p>We provide full-stack digital marketing services for businesses across India and international
+                        markets. Our team helps brands build visibility, attract high-intent customers, and scale online
+                        through SEO, performance ads, social media, strategic content, and conversion-optimized web
+                        design.</p>
+
+                    <div class="location-stats">
+                        <div class="stat-item">
+                            <strong>15+</strong>
+                            <span>Countries Served</span>
+                        </div>
+                        <div class="stat-item">
+                            <strong>24/7</strong>
+                            <span>Global Support</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-visual tail-reveal" style="min-width: 0;">
+                    <div class="holographic-map-container">
+                        <div class="map-glow"></div>
+                        <img src="assets/global-reach-map.png"
+                            alt="We Here global reach map showing India-based digital marketing agency with worldwide client connections"
+                            class="base-map" loading="lazy">
+
+                        <div class="radar-overlay">
+                            <span class="radar-ring"></span>
+                            <span class="radar-ring delay-1"></span>
+                            <span class="radar-ring delay-2"></span>
+                            <span class="radar-core">IN</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 13. TOOLS — bento platform mosaic -->
+        <section class="tail-section tail-tools" id="tools-platforms">
+            <div class="container">
+                <div class="tail-section-head tail-reveal">
+                    <span class="section-tag">Our Stack</span>
+                    <h2 class="section-title gradient-text">Platforms We Work With</h2>
+                </div>
+                <div class="tech-orbit-container tail-reveal">
+                    <div class="orbit-center">
+                        <span>Our<br>Stack</span>
+                    </div>
+
+                    <!-- Ring 1 -->
+                    <div class="orbit-ring ring-1">
+                        <div class="orbit-node" style="--angle: 0deg">
+                            <div class="node-label"><span>Google Ads</span></div>
+                        </div>
+                        <div class="orbit-node" style="--angle: 90deg">
+                            <div class="node-label"><span>Meta Ads</span></div>
+                        </div>
+                        <div class="orbit-node" style="--angle: 180deg">
+                            <div class="node-label"><span>WordPress</span></div>
+                        </div>
+                        <div class="orbit-node" style="--angle: 270deg">
+                            <div class="node-label"><span>Shopify</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Ring 2 -->
+                    <div class="orbit-ring ring-2">
+                        <div class="orbit-node" style="--angle: 0deg">
+                            <div class="node-label"><span>Instagram</span></div>
+                        </div>
+                        <div class="orbit-node" style="--angle: 72deg">
+                            <div class="node-label"><span>Facebook</span></div>
+                        </div>
+                        <div class="orbit-node" style="--angle: 144deg">
+                            <div class="node-label"><span>LinkedIn</span></div>
+                        </div>
+                        <div class="orbit-node" style="--angle: 216deg">
+                            <div class="node-label"><span>Canva</span></div>
+                        </div>
+                        <div class="orbit-node" style="--angle: 288deg">
+                            <div class="node-label"><span>YouTube</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Ring 3 -->
+                    <div class="orbit-ring ring-3">
+                        <div class="orbit-node" style="--angle: 36deg">
+                            <div class="node-label"><span>Google Analytics</span></div>
+                        </div>
+                        <div class="orbit-node" style="--angle: 108deg">
+                            <div class="node-label"><span>Search Console</span></div>
+                        </div>
+                        <div class="orbit-node" style="--angle: 180deg">
+                            <div class="node-label"><span>Adobe Suite</span></div>
+                        </div>
+                        <div class="orbit-node" style="--angle: 252deg">
+                            <div class="node-label"><span>AI Marketing Tools</span></div>
+                        </div>
+                        <div class="orbit-node" style="--angle: 324deg">
+                            <div class="node-label"><span>CRM Platforms</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 14. BLOG — magazine layout -->
+        <!-- <section class="tail-section tail-blog" id="blog">
+            <div class="container">
+                <div class="tail-section-head tail-reveal">
+                    <span class="section-tag">Insights</span>
+                    <h2 class="section-title gradient-text">Digital Marketing Insights &amp; Resources</h2>
+                </div>
+                <div class="blog-magazine tail-reveal">
+                    <a href="blog/how-to-choose-digital-marketing-agency.html" class="blog-featured">
+                        <span class="blog-tag">Featured</span>
+                        <h3>How to Choose the Right Digital Marketing Agency</h3>
+                        <p>The critical questions every business must ask before committing to a long-term digital
+                            marketing partnership.</p>
+                        <span class="blog-read">Read article →</span>
+                    </a>
+                    <div class="blog-stack">
+                        <a href="blog/seo-vs-paid-ads.html" class="blog-stack-item"><span>SEO vs Paid
+                                Ads</span><small>Which strategy delivers better ROI for your business?</small></a>
+                        <a href="blog/social-media-for-small-business.html" class="blog-stack-item"><span>Social Media
+                                for SMBs</span><small>Practical social strategies that drive real growth</small></a>
+                        <a href="blog/website-not-generating-leads.html" class="blog-stack-item"><span>Website Not
+                                Converting?</span><small>Diagnose and fix your lead generation gaps</small></a>
+                        <a href="blog/best-digital-marketing-strategies-2026.html" class="blog-stack-item"><span>2026
+                                Strategy Guide</span><small>The definitive digital marketing playbook</small></a>
+                        <a href="blog/performance-marketing-roi.html" class="blog-stack-item"><span>Performance
+                                Marketing ROI</span><small>How to track, test, and scale campaigns
+                                profitably</small></a>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- 15. FAQ — sticky split layout -->
+        <section class="tail-section tail-faq" id="faq">
+            <div class="container faq-split">
+                <div class="faq-split-head tail-reveal">
+                    <span class="section-tag">FAQ</span>
+                    <h2 class="section-title gradient-text">Frequently Asked Questions About Digital Marketing Services
+                    </h2>
+                    <p>Clear answers to the questions businesses ask before starting digital marketing.</p>
+                </div>
+                <div class="faq-accordion tail-reveal">
+                    <details class="faq-item" open>
+                        <summary>What are digital marketing services?</summary>
+                        <p>Digital marketing services include SEO, social media marketing, paid ads, content marketing,
+                            website optimization, email marketing, and online brand strategy.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Why does my business need digital marketing?</summary>
+                        <p>Digital marketing helps your business reach more people online, generate leads, increase
+                            sales, and build brand trust.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>How long does digital marketing take to show results?</summary>
+                        <p>Paid ads can generate faster results, while SEO and organic content usually take longer but
+                            build sustainable growth.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Which digital marketing service is best for my business?</summary>
+                        <p>It depends on your goals. SEO is good for long-term visibility, paid ads are good for quick
+                            leads, and social media is good for brand awareness.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Do you provide monthly digital marketing packages?</summary>
+                        <p>Yes, we offer customized monthly plans based on the client's business goals, budget,
+                            platforms, and required services.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Can digital marketing help small businesses?</summary>
+                        <p>Yes, digital marketing is highly useful for small businesses because it helps them compete
+                            online, target local customers, and generate cost-effective leads.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- 16 & 17. FINAL CTA + FOOTER -->
+        <section class="tail-section tail-cta" id="final-cta">
+            <div class="cta-mesh-bg" aria-hidden="true"></div>
+            <div class="container">
+                <div class="final-cta-box tail-reveal">
+                    <span class="section-tag">Let's Grow Together</span>
+                    <h2 class="section-title gradient-text">Ready to Scale Your Business Online?</h2>
+                    <p class="final-cta-desc">Let's architect a digital marketing strategy that drives measurable
+                        visibility, qualified traffic, high-intent leads, and sustainable revenue growth.</p>
+                    <div class="final-cta-buttons">
+                        <a href="contact.html" class="btn btn-primary">Get
+                            Free Marketing Audit</a>
+                        <a href="contact.html" class="btn btn-secondary">Book
+                            a Consultation</a>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer site-footer tail-reveal">
+                <div class="container">
+                    <div class="footer-top">
+                        <div class="footer-brand">
+                            <a href="#" class="logo footer-logo">
+                                <img src="assets/main-logo.webp" alt="Wehere Media Logo" class="logo-img" style="height: 180px; width: auto;" />
+                            </a>
+                            <p>We Here is a digital marketing agency helping brands across India and global markets grow
+                                through SEO, paid ads, social media, content, and high-converting websites.</p>
+                            <p class="footer-contact"><a href="mailto:hello@wehere.com">hello@wehere.com</a> · <a
+                                    href="tel:+911234567890">+91 12345 67890</a></p>
+                        </div>
+                        <div class="footer-links">
+                            <div class="footer-group">
+                                <h4>Services</h4>
+                                <ul>
+                                    <li><a href="services/search-engine-optimization.html">SEO</a></li>
+                                    <li><a href="services/social-media-marketing.html">Social Media</a></li>
+                                    <li><a href="services/performance-marketing.html">Performance Marketing</a></li>
+                                    <li><a href="services/content-marketing.html">Content Marketing</a></li>
+                                    <li><a href="services/website-design-development.html">Website Design</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-group">
+                                <h4>Industries</h4>
+                                <ul>
+                                    <li><a href="industries/e-commerce.html">E-commerce</a></li>
+                                    <li><a href="industries/real-estate.html">Real Estate</a></li>
+                                    <li><a href="industries/healthcare.html">Healthcare</a></li>
+                                    <li><a href="industries/saas-technology.html">SaaS &amp; Technology</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-group">
+                                <h4>Resources</h4>
+                                <ul>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="#blog">Blog</a></li>
+                                    <li><a href="case-studies.html">Case Studies</a></li>
+                                    <li><a href="#faq">FAQ</a></li>
+                                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                    <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>&copy; 2026 We Here. All rights reserved.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                            <a href="#" class="social-link" aria-label="Instagram">◎</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </section>
+
+    </div>
+
+    <!-- LENIS SMOOTH SCROLL SYSTEM CDN -->
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
+    <!-- INTERACTIVE JAVASCRIPT SYSTEM -->
+    <script src="main.js" defer></script>
+</body>
+
+</html>

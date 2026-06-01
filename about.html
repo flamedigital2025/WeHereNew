@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About We Here Media - Learn about our mission, vision, and team.">
+    <title>About Us | We Here Media</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Specific Styles for About Page */
+        .about-page-wrapper {
+            background-color: var(--color-bg);
+            padding-top: 150px; /* Offset for nav */
+        }
+
+        .about-hero {
+            padding: 2rem 0 4rem;
+            text-align: center;
+        }
+
+        .about-mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .about-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 3rem;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+            background: rgba(99, 102, 241, 0.05);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        .about-card p {
+            font-size: 1.1rem;
+            color: var(--color-text-main);
+            line-height: 1.6;
+        }
+
+        .about-values {
+            padding: 2rem 0 4rem;
+        }
+
+        .values-bento {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: linear-gradient(145deg, rgba(30,30,40,0.6), rgba(15,15,20,0.8));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+        }
+
+        .value-card:hover {
+            border-color: #06b6d4;
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(6, 182, 212, 0.15);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: #06b6d4;
+            margin-bottom: 1rem;
+        }
+
+        .value-card h4 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 0.75rem;
+        }
+
+        .value-card p {
+            color: var(--color-text-main);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .about-cta {
+            padding: 4rem 0 0; /* Reduced top padding to kill the gap */
+        }
+
+        @media (max-width: 900px) {
+            .about-mission-grid { grid-template-columns: 1fr; }
+            .values-bento { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- STICKY NAVIGATION BAR -->
+    <header class="header-nav secondary-nav" id="main-nav">
+        <div class="container">
+            <a href="index.html" class="logo" id="nav-logo-wrap">
+                <img src="assets/main-logo.webp" alt="Wehere Media Logo" class="logo-img" id="nav-logo"
+                    style="opacity: 1; height: 100px; width: auto;" />
+            </a>
+
+            <nav class="nav-links">
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link active-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="about-page-wrapper">
+        <section class="about-hero">
+            <div class="container">
+                <div class="tail-section-head">
+                    <span class="section-tag">The We Here Story</span>
+                    <h1 class="section-title gradient-text" style="font-size: 4rem;">Architecting Digital Excellence</h1>
+                    <p style="font-size: 1.25rem; color: var(--color-text-main); max-width: 700px; margin: 1.5rem auto 0;">
+                        We are a premium digital marketing and technology agency dedicated to building high-converting, unforgettable digital experiences for industry leaders.
+                    </p>
+                </div>
+
+                <div class="about-mission-grid">
+                    <div class="about-card">
+                        <h3>Our Mission</h3>
+                        <p>To empower visionary brands with data-driven marketing, breathtaking aesthetics, and robust technology. We believe that true digital success lies at the intersection of stunning design and flawless engineering.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Our Vision</h3>
+                        <p>To redefine the standard of digital luxury and performance. We strive to be the undisputed global leaders in crafting digital ecosystems that scale seamlessly and dominate competitive markets.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-values">
+            <div class="container">
+                <div class="tail-section-head text-center" style="margin-bottom: 0;">
+                    <h2 class="section-title">Core Principles</h2>
+                </div>
+                
+                <div class="values-bento">
+                    <div class="value-card">
+                        <div class="value-icon">✦</div>
+                        <h4>Uncompromising Quality</h4>
+                        <p>Every line of code, every pixel, and every campaign is crafted with meticulous attention to detail and a pursuit of perfection.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">◉</div>
+                        <h4>Data-Driven Strategy</h4>
+                        <p>We don't guess. We analyze deep market trends and user behavior to engineer campaigns that guarantee measurable ROI.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">⬡</div>
+                        <h4>Relentless Innovation</h4>
+                        <p>We leverage cutting-edge tech stacks, AI automation, and modern design paradigms to keep your brand years ahead of the competition.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 16 & 17. FINAL CTA + FOOTER -->
+        <section class="tail-section" id="site-tail">
+            <div class="container" style="padding-top: 4rem;">
+                <div class="final-cta-box">
+                    <span class="section-tag">Let's Grow Together</span>
+                    <h2 class="section-title gradient-text">Ready to Scale Your Business Online?</h2>
+                    <p class="final-cta-desc">Let's architect a digital marketing strategy that drives measurable
+                        visibility, qualified traffic, high-intent leads, and sustainable revenue growth.</p>
+                    <div class="final-cta-buttons">
+                        <a href="contact.html" class="btn btn-primary">Get Free Marketing Audit</a>
+                        <a href="contact.html" class="btn btn-secondary">Book a Consultation</a>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer site-footer" style="margin-top: 4rem;">
+                <div class="container">
+                    <div class="footer-top">
+                        <div class="footer-brand">
+                            <a href="index.html" class="logo footer-logo">WE HERE<span class="logo-dot"></span></a>
+                            <p>We Here is a digital marketing agency helping brands across India and global markets grow
+                                through SEO, paid ads, social media, content, and high-converting websites.</p>
+                            <p class="footer-contact"><a href="mailto:hello@wehere.com">hello@wehere.com</a> · <a
+                                    href="tel:+911234567890">+91 12345 67890</a></p>
+                        </div>
+                        <div class="footer-links">
+                            <div class="footer-group">
+                                <h4>Services</h4>
+                                <ul>
+                                    <li><a href="services/search-engine-optimization.html">SEO</a></li>
+                                    <li><a href="services/social-media-marketing.html">Social Media</a></li>
+                                    <li><a href="services/performance-marketing.html">Performance Marketing</a></li>
+                                    <li><a href="services/content-marketing.html">Content Marketing</a></li>
+                                    <li><a href="services/website-design-development.html">Website Design</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-group">
+                                <h4>Industries</h4>
+                                <ul>
+                                    <li><a href="industries/e-commerce.html">E-commerce</a></li>
+                                    <li><a href="industries/real-estate.html">Real Estate</a></li>
+                                    <li><a href="industries/healthcare.html">Healthcare</a></li>
+                                    <li><a href="industries/saas-technology.html">SaaS &amp; Technology</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-group">
+                                <h4>Resources</h4>
+                                <ul>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="index.html#blog">Blog</a></li>
+                                    <li><a href="case-studies.html">Case Studies</a></li>
+                                    <li><a href="index.html#faq">FAQ</a></li>
+                                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                    <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>&copy; 2026 We Here. All rights reserved.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                            <a href="#" class="social-link" aria-label="Instagram">◎</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </section>
+    </div>
+
+    <!-- LENIS SMOOTH SCROLL SYSTEM CDN -->
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact We Here Media - Reach out for digital marketing consulting and services.">
+    <title>Contact Us | We Here Media</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Specific Styles for Contact Page */
+        .contact-page-wrapper {
+            background-color: var(--color-bg);
+            padding-top: 150px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Ambient Glows */
+        .contact-page-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .contact-page-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 20%;
+            right: -10%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .contact-hero {
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* The Wide Rectangle Layout */
+        .contact-rectangle {
+            display: flex;
+            flex-direction: column;
+            background: rgba(20, 20, 25, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            max-width: 1200px;
+            margin: 3rem auto 2rem;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (min-width: 992px) {
+            .contact-rectangle {
+                flex-direction: row;
+                min-height: 600px;
+            }
+        }
+
+        /* Left Side: Map and Info */
+        .rectangle-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .full-width-map {
+            width: 100vw;
+            height: 450px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .full-width-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: grayscale(100%) invert(90%) contrast(1.2) hue-rotate(180deg);
+            transition: filter 0.5s ease;
+        }
+
+        .full-width-map:hover iframe {
+            filter: grayscale(40%) invert(90%) contrast(1.2) hue-rotate(180deg);
+        }
+
+        .info-container {
+            padding: 3rem;
+            background: rgba(10, 10, 15, 0.4);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Right Side: Form */
+        .rectangle-right {
+            flex: 1.2;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(30, 30, 40, 0.6), rgba(15, 15, 20, 0.8));
+        }
+
+        .contact-rectangle h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .contact-rectangle p {
+            color: var(--color-text-main);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .contact-rectangle a {
+            color: #06b6d4;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .bento-card a:hover {
+            color: #fff;
+        }
+
+        /* Form Styles */
+        .form-header {
+            margin-bottom: 2rem;
+        }
+
+        .form-header h2 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            flex: 1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1.1rem 1.25rem;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #6366f1;
+            background: rgba(99, 102, 241, 0.05);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.25rem;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            border-radius: 12px;
+        }
+
+        /* Mobile Layout */
+        @media (max-width: 900px) {
+            .contact-bento-grid {
+                display: flex;
+                flex-direction: column;
+            }
+            .form-row {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .map-card {
+                min-height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- STICKY NAVIGATION BAR -->
+    <header class="header-nav secondary-nav" id="main-nav">
+        <div class="container">
+            <a href="index.html" class="logo" id="nav-logo-wrap">
+                <img src="assets/main-logo.webp" alt="Wehere Media Logo" class="logo-img" id="nav-logo"
+                    style="opacity: 1; height: 100px; width: auto;" />
+            </a>
+
+            <nav class="nav-links">
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="contact.html" class="nav-link active-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="contact-page-wrapper">
+            <section class="contact-hero">
+                <div class="container">
+                    <div class="tail-section-head">
+                        <span class="section-tag">Global Command</span>
+                        <h1 class="section-title gradient-text" style="font-size: 4rem;">Initiate Contact</h1>
+                        <p style="font-size: 1.25rem; color: var(--color-text-main); max-width: 700px; margin: 1.5rem auto 0;">
+                            Ready to dominate your industry? Connect with our strategy team to architect your next massive growth phase.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- THE RECTANGLE COMMAND CENTER -->
+            <div class="contact-rectangle">
+                
+                <!-- LEFT SIDE: INFO -->
+                <div class="rectangle-left">
+                    <div class="info-container">
+                        <h3>Direct Lines</h3>
+                        <p>For urgent inquiries or partnership opportunities, bypass the form and connect directly.</p>
+                        <div style="margin-top: 1.5rem;">
+                            <p style="margin-bottom: 0.5rem;"><span style="color: #fff; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.2rem;">Email Comms</span> <a href="mailto:hello@wehere.com">hello@wehere.com</a></p>
+                            <p><span style="color: #fff; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.2rem;">Voice Comms</span> <a href="tel:+911234567890">+91 12345 67890</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDE: FORM -->
+                <div class="rectangle-right">
+                    <div class="form-header">
+                        <h2 style="font-size: 2rem; color: #fff; margin-bottom: 0.5rem;">Send a Secure Transmission</h2>
+                        <p style="color: var(--color-text-main);">Our specialists aim to respond within 24 hours.</p>
+                    </div>
+                    <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Message sent! We will contact you soon.');" style="margin-top: 2rem;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" class="form-control" placeholder="Jane Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" class="form-control" placeholder="jane@company.com" required>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 1.5rem;">
+                            <label for="service">Target Objective</label>
+                            <select id="service" class="form-control" required style="color: #fff; background-color: rgba(0,0,0,0.8);">
+                                <option value="" disabled selected>Select an objective...</option>
+                                <option value="seo">Search Engine Dominance (SEO)</option>
+                                <option value="ads">Performance Marketing & Paid Ads</option>
+                                <option value="web">Platform Engineering & Design</option>
+                                <option value="content">Content Strategy & Viral Marketing</option>
+                                <option value="full">Full Digital Ecosystem Transformation</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mission Details</label>
+                            <textarea id="message" class="form-control" placeholder="Detail your current metrics, goals, and timeline..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary submit-btn">Initialize Campaign</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- FULL WIDTH MAP -->
+        <section class="full-width-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6860.515932673818!2d76.68666740000003!3d30.711147499999992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fefcfe8f2e4ad%3A0xbdbf7fc65a026525!2sMusic%20Marketing%20Agency%20for%20Artists%20%26%20Labels%20%7C%20Wehere%20Media!5e0!3m2!1sen!2sin!4v1780137861220!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer site-footer">
+            <div class="container">
+                <div class="footer-top">
+                    <div class="footer-brand">
+                        <a href="index.html" class="logo footer-logo">WE HERE<span class="logo-dot"></span></a>
+                        <p>We Here is a digital marketing agency helping brands across India and global markets grow
+                            through SEO, paid ads, social media, content, and high-converting websites.</p>
+                        <p class="footer-contact"><a href="mailto:hello@wehere.com">hello@wehere.com</a> · <a
+                                href="tel:+911234567890">+91 12345 67890</a></p>
+                    </div>
+                    <div class="footer-links">
+                        <div class="footer-group">
+                            <h4>Services</h4>
+                            <ul>
+                                <li><a href="services/search-engine-optimization.html">SEO</a></li>
+                                <li><a href="services/social-media-marketing.html">Social Media</a></li>
+                                <li><a href="services/performance-marketing.html">Performance Marketing</a></li>
+                                <li><a href="services/content-marketing.html">Content Marketing</a></li>
+                                <li><a href="services/website-design-development.html">Website Design</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-group">
+                            <h4>Industries</h4>
+                            <ul>
+                                <li><a href="industries/e-commerce.html">E-commerce</a></li>
+                                <li><a href="industries/real-estate.html">Real Estate</a></li>
+                                <li><a href="industries/healthcare.html">Healthcare</a></li>
+                                <li><a href="industries/saas-technology.html">SaaS &amp; Technology</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-group">
+                            <h4>Resources</h4>
+                            <ul>
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
+                                <li><a href="index.html#blog">Blog</a></li>
+                                <li><a href="case-studies.html">Case Studies</a></li>
+                                <li><a href="index.html#faq">FAQ</a></li>
+                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 We Here. All rights reserved.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                        <a href="#" class="social-link" aria-label="Instagram">◎</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- LENIS SMOOTH SCROLL SYSTEM CDN -->
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="main.js" defer></script>
+</body>
+</html>
