@@ -9,104 +9,212 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Specific Styles for About Page */
+        /* ===== About Page — editorial layout (varied, non-uniform) ===== */
         .about-page-wrapper {
-            background-color: var(--color-bg);
-            padding-top: 150px; /* Offset for nav */
+            --about-line: rgba(255, 255, 255, 0.1);
+            background-color: var(--color-bg-base);
+            padding-top: 140px;
         }
 
+        /* Hero */
         .about-hero {
-            padding: 2rem 0 4rem;
+            padding: 2rem 0 3rem;
             text-align: center;
         }
 
-        .about-mission-grid {
+        .about-hero .section-title {
+            font-size: clamp(2.4rem, 5vw, 4rem);
+        }
+
+        .about-lead {
+            font-size: 1.2rem;
+            color: var(--color-text-secondary);
+            max-width: 720px;
+            margin: 1.5rem auto 0;
+            line-height: 1.7;
+        }
+
+        /* Mission / Vision — large editorial statement rows (no boxes) */
+        .about-statements {
+            padding: 4.5rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .statement-row {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 4rem;
+            grid-template-columns: auto 1fr;
+            column-gap: 2.25rem;
+            align-items: baseline;
         }
 
-        .about-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
-            padding: 3rem;
-            transition: var(--transition-smooth);
-            position: relative;
-            overflow: hidden;
+        .statement-row.reverse {
+            grid-template-columns: 1fr auto;
+            text-align: right;
         }
 
-        .about-card:hover {
-            border-color: rgba(99, 102, 241, 0.3);
-            background: rgba(99, 102, 241, 0.05);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        .statement-index {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.75rem, 5vw, 3.75rem);
+            font-weight: 800;
+            line-height: 1;
+            background: linear-gradient(180deg, #a78bfa, #6366f1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
-        .about-card h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
+        .statement-row.reverse .statement-index {
+            order: 2;
+        }
+
+        .statement-row.reverse .statement-body {
+            order: 1;
+        }
+
+        .statement-body h3 {
+            font-size: 1.6rem;
+            margin: 0 0 0.85rem;
+            color: #fff;
+            letter-spacing: 0.02em;
+            line-height: 1.2;
+        }
+
+        .statement-body p {
+            font-size: 1.08rem;
+            line-height: 1.7;
+            color: var(--color-text-secondary);
+            max-width: 620px;
+            margin: 0;
+        }
+
+        .statement-row.reverse .statement-body p {
+            margin-left: auto;
+        }
+
+        /* Stats band — a different representation entirely */
+        .about-stats {
+            border-top: 1px solid var(--about-line);
+            border-bottom: 1px solid var(--about-line);
+            padding: 2.75rem 0;
+        }
+
+        .about-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .about-stat .num {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
             color: #fff;
         }
 
-        .about-card p {
-            font-size: 1.1rem;
-            color: var(--color-text-main);
-            line-height: 1.6;
+        .about-stat .label {
+            font-size: 0.82rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--color-text-muted);
+            margin-top: 0.45rem;
         }
 
-        .about-values {
-            padding: 2rem 0 4rem;
+        /* Core principles — numbered list rows separated by hairlines (no cards) */
+        .about-principles {
+            padding: 4rem 0;
         }
 
-        .values-bento {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .value-card {
-            background: linear-gradient(145deg, rgba(30,30,40,0.6), rgba(15,15,20,0.8));
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.4s ease;
-        }
-
-        .value-card:hover {
-            border-color: #06b6d4;
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(6, 182, 212, 0.15);
-        }
-
-        .value-icon {
-            font-size: 2.5rem;
-            color: #06b6d4;
+        .principles-head {
             margin-bottom: 1rem;
         }
 
-        .value-card h4 {
-            font-size: 1.3rem;
+        .principle-row {
+            display: grid;
+            grid-template-columns: 90px 1fr;
+            gap: 2rem;
+            padding: 2.2rem 0;
+            border-top: 1px solid var(--about-line);
+            align-items: start;
+            transition: padding-left 0.35s ease;
+        }
+
+        .principle-row:last-child {
+            border-bottom: 1px solid var(--about-line);
+        }
+
+        .principle-row:hover {
+            padding-left: 0.75rem;
+        }
+
+        .principle-num {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #06b6d4;
+        }
+
+        .principle-content h4 {
+            font-size: 1.45rem;
             color: #fff;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.6rem;
         }
 
-        .value-card p {
-            color: var(--color-text-main);
-            font-size: 0.95rem;
-            line-height: 1.5;
+        .principle-content p {
+            font-size: 1.02rem;
+            line-height: 1.65;
+            color: var(--color-text-secondary);
+            max-width: 760px;
         }
 
-        .about-cta {
-            padding: 4rem 0 0; /* Reduced top padding to kill the gap */
+        /* CTA + footer in normal document flow */
+        .about-cta-band {
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .about-cta-band .final-cta-box {
+            margin: 0 auto;
         }
 
         @media (max-width: 900px) {
-            .about-mission-grid { grid-template-columns: 1fr; }
-            .values-bento { grid-template-columns: 1fr; }
+            .statement-row,
+            .statement-row.reverse {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+                text-align: left;
+            }
+
+            .statement-row.reverse .statement-index {
+                order: 0;
+                text-align: left;
+            }
+
+            .statement-row.reverse .statement-body {
+                order: 0;
+            }
+
+            .statement-row.reverse .statement-body p {
+                margin-left: 0;
+                text-align: left;
+            }
+
+            .statement-index {
+                font-size: 3.2rem;
+            }
+
+            .about-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .principle-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                padding: 1.6rem 0;
+            }
         }
     </style>
 </head>
@@ -145,54 +253,101 @@
             <div class="container">
                 <div class="tail-section-head">
                     <span class="section-tag">The We Here Story</span>
-                    <h1 class="section-title gradient-text" style="font-size: 4rem;">Architecting Digital Excellence</h1>
-                    <p style="font-size: 1.25rem; color: var(--color-text-main); max-width: 700px; margin: 1.5rem auto 0;">
-                        We are a premium digital marketing and technology agency dedicated to building high-converting, unforgettable digital experiences for industry leaders.
+                    <h1 class="section-title gradient-text">Architecting Digital Excellence</h1>
+                    <p class="about-lead">
+                        We are a premium digital marketing and technology agency dedicated to building
+                        high-converting, unforgettable digital experiences for industry leaders.
                     </p>
                 </div>
+            </div>
+        </section>
 
-                <div class="about-mission-grid">
-                    <div class="about-card">
+        <!-- Mission & Vision as editorial statement rows -->
+        <section class="about-statements">
+            <div class="container">
+                <div class="statement-row">
+                    <div class="statement-index">01</div>
+                    <div class="statement-body">
                         <h3>Our Mission</h3>
-                        <p>To empower visionary brands with data-driven marketing, breathtaking aesthetics, and robust technology. We believe that true digital success lies at the intersection of stunning design and flawless engineering.</p>
+                        <p>To empower visionary brands with data-driven marketing, breathtaking aesthetics, and
+                            robust technology. We believe true digital success lies at the intersection of stunning
+                            design and flawless engineering.</p>
                     </div>
-                    <div class="about-card">
+                </div>
+                <div class="statement-row reverse">
+                    <div class="statement-index">02</div>
+                    <div class="statement-body">
                         <h3>Our Vision</h3>
-                        <p>To redefine the standard of digital luxury and performance. We strive to be the undisputed global leaders in crafting digital ecosystems that scale seamlessly and dominate competitive markets.</p>
+                        <p>To redefine the standard of digital luxury and performance. We strive to be the undisputed
+                            global leaders in crafting digital ecosystems that scale seamlessly and dominate
+                            competitive markets.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="about-values">
+        <!-- Stats band -->
+        <section class="about-stats">
             <div class="container">
-                <div class="tail-section-head text-center" style="margin-bottom: 0;">
+                <div class="about-stats-grid">
+                    <div class="about-stat">
+                        <div class="num">150+</div>
+                        <div class="label">Brands Scaled</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="num">8</div>
+                        <div class="label">Years of Craft</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="num">12</div>
+                        <div class="label">Countries Served</div>
+                    </div>
+                    <div class="about-stat">
+                        <div class="num">98%</div>
+                        <div class="label">Client Retention</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core principles as a numbered list (no cards) -->
+        <section class="about-principles">
+            <div class="container">
+                <div class="tail-section-head principles-head">
+                    <span class="section-tag">What Drives Us</span>
                     <h2 class="section-title">Core Principles</h2>
                 </div>
-                
-                <div class="values-bento">
-                    <div class="value-card">
-                        <div class="value-icon">✦</div>
+
+                <div class="principle-row">
+                    <div class="principle-num">01</div>
+                    <div class="principle-content">
                         <h4>Uncompromising Quality</h4>
-                        <p>Every line of code, every pixel, and every campaign is crafted with meticulous attention to detail and a pursuit of perfection.</p>
+                        <p>Every line of code, every pixel, and every campaign is crafted with meticulous attention to
+                            detail and a relentless pursuit of perfection.</p>
                     </div>
-                    <div class="value-card">
-                        <div class="value-icon">◉</div>
+                </div>
+                <div class="principle-row">
+                    <div class="principle-num">02</div>
+                    <div class="principle-content">
                         <h4>Data-Driven Strategy</h4>
-                        <p>We don't guess. We analyze deep market trends and user behavior to engineer campaigns that guarantee measurable ROI.</p>
+                        <p>We don't guess. We analyze deep market trends and user behavior to engineer campaigns that
+                            deliver measurable, defensible ROI.</p>
                     </div>
-                    <div class="value-card">
-                        <div class="value-icon">⬡</div>
+                </div>
+                <div class="principle-row">
+                    <div class="principle-num">03</div>
+                    <div class="principle-content">
                         <h4>Relentless Innovation</h4>
-                        <p>We leverage cutting-edge tech stacks, AI automation, and modern design paradigms to keep your brand years ahead of the competition.</p>
+                        <p>We leverage cutting-edge tech stacks, AI automation, and modern design paradigms to keep your
+                            brand years ahead of the competition.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 16 & 17. FINAL CTA + FOOTER -->
-        <section class="tail-section" id="site-tail">
-            <div class="container" style="padding-top: 4rem;">
+        <!-- FINAL CTA -->
+        <section class="about-cta-band">
+            <div class="container">
                 <div class="final-cta-box">
                     <span class="section-tag">Let's Grow Together</span>
                     <h2 class="section-title gradient-text">Ready to Scale Your Business Online?</h2>
@@ -204,62 +359,67 @@
                     </div>
                 </div>
             </div>
-            <footer class="footer site-footer" style="margin-top: 4rem;">
-                <div class="container">
-                    <div class="footer-top">
-                        <div class="footer-brand">
-                            <a href="index.html" class="logo footer-logo">WE HERE<span class="logo-dot"></span></a>
-                            <p>We Here is a digital marketing agency helping brands across India and global markets grow
-                                through SEO, paid ads, social media, content, and high-converting websites.</p>
-                            <p class="footer-contact"><a href="mailto:hello@wehere.com">hello@wehere.com</a> · <a
-                                    href="tel:+911234567890">+91 12345 67890</a></p>
-                        </div>
-                        <div class="footer-links">
-                            <div class="footer-group">
-                                <h4>Services</h4>
-                                <ul>
-                                    <li><a href="services/search-engine-optimization.html">SEO</a></li>
-                                    <li><a href="services/social-media-marketing.html">Social Media</a></li>
-                                    <li><a href="services/performance-marketing.html">Performance Marketing</a></li>
-                                    <li><a href="services/content-marketing.html">Content Marketing</a></li>
-                                    <li><a href="services/website-design-development.html">Website Design</a></li>
-                                </ul>
-                            </div>
-                            <div class="footer-group">
-                                <h4>Industries</h4>
-                                <ul>
-                                    <li><a href="industries/e-commerce.html">E-commerce</a></li>
-                                    <li><a href="industries/real-estate.html">Real Estate</a></li>
-                                    <li><a href="industries/healthcare.html">Healthcare</a></li>
-                                    <li><a href="industries/saas-technology.html">SaaS &amp; Technology</a></li>
-                                </ul>
-                            </div>
-                            <div class="footer-group">
-                                <h4>Resources</h4>
-                                <ul>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
-                                    <li><a href="index.html#blog">Blog</a></li>
-                                    <li><a href="case-studies.html">Case Studies</a></li>
-                                    <li><a href="index.html#faq">FAQ</a></li>
-                                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                    <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="footer-bottom">
-                        <p>&copy; 2026 We Here. All rights reserved.</p>
-                        <div class="social-links">
-                            <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
-                            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
-                            <a href="#" class="social-link" aria-label="Instagram">◎</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </section>
     </div>
+
+    <!-- FOOTER (normal document flow) -->
+    <footer class="footer site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo footer-logo">
+                        <img src="assets/main-logo.webp" alt="Wehere Media Logo" class="logo-img"
+                            style="height: 180px; width: auto;" />
+                    </a>
+                    <p>We Here is a digital marketing agency helping brands across India and global markets grow
+                        through SEO, paid ads, social media, content, and high-converting websites.</p>
+                    <p class="footer-contact"><a href="mailto:hello@wehere.com">hello@wehere.com</a> · <a
+                            href="tel:+911234567890">+91 12345 67890</a></p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-group">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="services/search-engine-optimization.html">SEO</a></li>
+                            <li><a href="services/social-media-marketing.html">Social Media</a></li>
+                            <li><a href="services/performance-marketing.html">Performance Marketing</a></li>
+                            <li><a href="services/content-marketing.html">Content Marketing</a></li>
+                            <li><a href="services/website-design-development.html">Website Design</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-group">
+                        <h4>Industries</h4>
+                        <ul>
+                            <li><a href="industries/e-commerce.html">E-commerce</a></li>
+                            <li><a href="industries/real-estate.html">Real Estate</a></li>
+                            <li><a href="industries/healthcare.html">Healthcare</a></li>
+                            <li><a href="industries/saas-technology.html">SaaS &amp; Technology</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-group">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="index.html#blog">Blog</a></li>
+                            <li><a href="case-studies.html">Case Studies</a></li>
+                            <li><a href="index.html#faq">FAQ</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 We Here. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                    <a href="#" class="social-link" aria-label="Instagram">◎</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- LENIS SMOOTH SCROLL SYSTEM CDN -->
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>

@@ -79,7 +79,8 @@ html {
     -webkit-font-smoothing: antialiased;
 }
 
-html, body {
+html,
+body {
     overflow-x: hidden !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -238,6 +239,18 @@ a {
     object-fit: contain;
 }
 
+@media (max-width: 991px) {
+    #nav-logo {
+        height: 48px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    #nav-logo {
+        height: 40px !important;
+    }
+}
+
 .logo-dot {
     width: 8px;
     height: 8px;
@@ -250,7 +263,7 @@ a {
 /* Giant Hero Logo & Floating Docking Logo Styles (Images) */
 .hero-logo-placeholder {
     margin-bottom: 1.5rem;
-    margin-top: -5rem;
+    margin-top: 0;
     text-align: center;
     user-select: none;
 }
@@ -273,11 +286,11 @@ a {
 
 @media (max-width: 991px) {
     .hero-logo-placeholder {
-        margin-top: -3.25rem;
+        margin-top: 0;
     }
 
     .hero-logo-img {
-        height: 84px;
+        height: 120px;
     }
 }
 
@@ -411,7 +424,7 @@ a {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 1.5rem;
+    padding: 0 1.5rem 10vh;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
@@ -438,11 +451,18 @@ a {
     will-change: transform;
 }
 
+/* Desktop: push tagline down so it clears the fixed header */
+@media (min-width: 769px) {
+    .hero-slide .slide-tag {
+        margin-top: 5rem;
+    }
+}
+
 .hero-slide h1 {
     font-family: 'Orbitron', sans-serif;
     font-size: 3.4rem;
     max-width: 1100px;
-    margin-top: -3.35rem;
+    margin-top: 0;
     margin-bottom: 1.8rem;
     font-weight: 700;
     letter-spacing: 0.14em;
@@ -1926,6 +1946,8 @@ body.scrolly-complete .site-tail {
     border: 1px dashed rgba(255, 255, 255, 0.15);
     transform-origin: center;
     pointer-events: none;
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
 .ring-1 {
@@ -1978,16 +2000,17 @@ body.scrolly-complete .site-tail {
     transform: translate(-50%, -50%);
     padding: 0.6rem 1.4rem;
     border-radius: 100px;
-    background: rgba(20, 20, 30, 0.85);
-    backdrop-filter: blur(8px);
+    background: rgba(20, 20, 30, 0.96);
     border: 1px solid rgba(255, 255, 255, 0.08);
     color: var(--color-text-main);
     font-size: 0.9rem;
     font-weight: 600;
     white-space: nowrap;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
     cursor: default;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
 .node-label span {
@@ -2888,7 +2911,7 @@ body.scrolly-complete .site-tail {
     .hero-slide h1 {
         font-size: 2rem;
         letter-spacing: 0.1em;
-        margin-top: -2.1rem;
+        margin-top: 0;
         line-height: 1;
     }
 
@@ -3618,7 +3641,8 @@ body.scrolly-complete .site-tail {
     }
 
     /* Shared overlay section behavior (desktop) */
-    .overlay-section {
+    .overlay-section,
+    .tail-section {
         position: fixed;
         bottom: 0;
         left: 0;
@@ -3627,7 +3651,7 @@ body.scrolly-complete .site-tail {
         max-height: 100vh;
         overflow-y: auto;
         margin-top: 0;
-        padding: calc(var(--header-height) + 1rem) 0 1.5rem;
+        padding: calc(var(--header-height) + 2rem) 0 3rem !important;
         transform: translateY(100%);
         will-change: transform;
         border-radius: 28px 28px 0 0;
@@ -3650,6 +3674,63 @@ body.scrolly-complete .site-tail {
 
     .case-studies-section {
         z-index: 45;
+    }
+
+    /* Stacking z-indices and alternating background colors for tail sections */
+    .tail-results {
+        z-index: 50;
+        background: #09090b !important;
+    }
+
+    .tail-location {
+        z-index: 55;
+        background: #000000 !important;
+    }
+
+    .tail-tools {
+        z-index: 60;
+        background: #09090b !important;
+    }
+
+    .tail-faq {
+        z-index: 65;
+        background: #000000 !important;
+    }
+
+    .tail-cta {
+        z-index: 70;
+        background: #09090b !important;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 0 !important;
+    }
+
+    /* CTA copy fills the space above the footer so no empty band is left */
+    .tail-cta > .container {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 0;
+    }
+
+    /* Footer anchored to the bottom edge of the pinned viewport */
+    .tail-cta .site-footer {
+        margin-top: auto;
+        width: 100%;
+        flex-shrink: 0;
+    }
+
+    .tail-cta .final-cta-box {
+        margin-bottom: 0;
+    }
+
+    /* Neutralize site-tail container hierarchy on desktop to allow child stacking */
+    .site-tail {
+        position: static !important;
+        z-index: auto !important;
+        background: transparent !important;
     }
 
     .overlay-section .section-header {
@@ -4028,7 +4109,7 @@ body.scrolly-complete .site-tail {
     }
 
     /* ── Case Studies Header ── */
-    #case-studies .sp-top > div:first-child {
+    #case-studies .sp-top>div:first-child {
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: 1rem !important;
@@ -4142,6 +4223,7 @@ body.scrolly-complete .site-tail {
         width: 100% !important;
         max-width: 100% !important;
     }
+
     .orbit-center {
         position: absolute !important;
         top: 50% !important;
@@ -4151,30 +4233,38 @@ body.scrolly-complete .site-tail {
         height: 90px !important;
         font-size: 0.9rem !important;
     }
+
     .orbit-center::before {
         inset: -8px !important;
     }
+
     .ring-1 {
         width: 200px !important;
         height: 200px !important;
     }
+
     .ring-1 .orbit-node {
         --radius: 100px !important;
     }
+
     .ring-2 {
         width: 340px !important;
         height: 340px !important;
     }
+
     .ring-2 .orbit-node {
         --radius: 170px !important;
     }
+
     .ring-3 {
         width: 480px !important;
         height: 480px !important;
     }
+
     .ring-3 .orbit-node {
         --radius: 240px !important;
     }
+
     .node-label {
         padding: 0.4rem 0.9rem !important;
         font-size: 0.78rem !important;
@@ -4337,7 +4427,7 @@ body.scrolly-complete .site-tail {
 
     /* ── Hero Logo ── */
     .hero-logo-img {
-        height: 80px;
+        height: 120px;
     }
 
     /* ── Showcase Section ── */
@@ -4524,6 +4614,7 @@ body.scrolly-complete .site-tail {
         width: 100% !important;
         max-width: 100% !important;
     }
+
     .orbit-center {
         position: absolute !important;
         top: 50% !important;
@@ -4533,30 +4624,38 @@ body.scrolly-complete .site-tail {
         height: 80px !important;
         font-size: 0.8rem !important;
     }
+
     .orbit-center::before {
         inset: -6px !important;
     }
+
     .ring-1 {
         width: 170px !important;
         height: 170px !important;
     }
+
     .ring-1 .orbit-node {
         --radius: 85px !important;
     }
+
     .ring-2 {
         width: 290px !important;
         height: 290px !important;
     }
+
     .ring-2 .orbit-node {
         --radius: 145px !important;
     }
+
     .ring-3 {
         width: 410px !important;
         height: 410px !important;
     }
+
     .ring-3 .orbit-node {
         --radius: 205px !important;
     }
+
     .node-label {
         padding: 0.35rem 0.75rem !important;
         font-size: 0.72rem !important;
@@ -4627,6 +4726,10 @@ body.scrolly-complete .site-tail {
     }
 
     /* ── Hero ── */
+    .hero-slide {
+        padding: 0 1rem 12vh !important;
+    }
+
     .hero-slide h1 {
         font-size: 1.6rem !important;
         letter-spacing: 0.08em !important;
@@ -4642,7 +4745,7 @@ body.scrolly-complete .site-tail {
     }
 
     .hero-logo-img {
-        height: 64px !important;
+        height: 110px !important;
     }
 
     .hero-slide .btn {
@@ -4699,6 +4802,7 @@ body.scrolly-complete .site-tail {
         width: 100% !important;
         max-width: 100% !important;
     }
+
     .orbit-center {
         position: absolute !important;
         top: 50% !important;
@@ -4708,30 +4812,38 @@ body.scrolly-complete .site-tail {
         height: 70px !important;
         font-size: 0.7rem !important;
     }
+
     .orbit-center::before {
         inset: -4px !important;
     }
+
     .ring-1 {
         width: 130px !important;
         height: 130px !important;
     }
+
     .ring-1 .orbit-node {
         --radius: 65px !important;
     }
+
     .ring-2 {
         width: 220px !important;
         height: 220px !important;
     }
+
     .ring-2 .orbit-node {
         --radius: 110px !important;
     }
+
     .ring-3 {
         width: 310px !important;
         height: 310px !important;
     }
+
     .ring-3 .orbit-node {
         --radius: 155px !important;
     }
+
     .node-label {
         padding: 0.3rem 0.6rem !important;
         font-size: 0.65rem !important;

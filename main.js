@@ -186,6 +186,11 @@
         const PROCESS_PANEL_VW = 0.44;
         const INDUSTRIES_REVEAL_VH = 1.2;
         const CASE_STUDIES_REVEAL_VH = 1.2;
+        const RESULTS_REVEAL_VH = 1.2;
+        const LOCATION_REVEAL_VH = 1.2;
+        const TOOLS_REVEAL_VH = 1.2;
+        const FAQ_REVEAL_VH = 1.2;
+        const CTA_REVEAL_VH = 1.4;
 
         function smoothstep(t) {
             const c = Math.max(0, Math.min(1, t));
@@ -212,14 +217,30 @@
             const caseStudiesRevealStart = industriesRevealStart + industriesRevealDuration;
             const caseStudiesRevealDuration = H * CASE_STUDIES_REVEAL_VH;
 
+            const resultsRevealStart = caseStudiesRevealStart + caseStudiesRevealDuration;
+            const resultsRevealDuration = H * RESULTS_REVEAL_VH;
+            const locationRevealStart = resultsRevealStart + resultsRevealDuration;
+            const locationRevealDuration = H * LOCATION_REVEAL_VH;
+            const toolsRevealStart = locationRevealStart + locationRevealDuration;
+            const toolsRevealDuration = H * TOOLS_REVEAL_VH;
+            const faqRevealStart = toolsRevealStart + toolsRevealDuration;
+            const faqRevealDuration = H * FAQ_REVEAL_VH;
+            const ctaRevealStart = faqRevealStart + faqRevealDuration;
+            const ctaRevealDuration = H * CTA_REVEAL_VH;
+
             const overlayMap = {
                 problem: { start: problemRevealStart, duration: problemRevealDuration },
                 'why-choose-us': { start: whyChooseRevealStart, duration: whyChooseRevealDuration },
                 industries: { start: industriesRevealStart, duration: industriesRevealDuration },
-                'case-studies': { start: caseStudiesRevealStart, duration: caseStudiesRevealDuration }
+                'case-studies': { start: caseStudiesRevealStart, duration: caseStudiesRevealDuration },
+                results: { start: resultsRevealStart, duration: resultsRevealDuration },
+                'location-seo': { start: locationRevealStart, duration: locationRevealDuration },
+                'tools-platforms': { start: toolsRevealStart, duration: toolsRevealDuration },
+                faq: { start: faqRevealStart, duration: faqRevealDuration },
+                'final-cta': { start: ctaRevealStart, duration: ctaRevealDuration }
             };
 
-            const scrollEnd = caseStudiesRevealStart + caseStudiesRevealDuration;
+            const scrollEnd = ctaRevealStart + ctaRevealDuration;
 
             return {
                 H, heroScrollMax, transitionDuration,
@@ -230,6 +251,11 @@
                 processHorizontalStart, processHorizontalDuration,
                 industriesRevealStart, industriesRevealDuration,
                 caseStudiesRevealStart, caseStudiesRevealDuration,
+                resultsRevealStart, resultsRevealDuration,
+                locationRevealStart, locationRevealDuration,
+                toolsRevealStart, toolsRevealDuration,
+                faqRevealStart, faqRevealDuration,
+                ctaRevealStart, ctaRevealDuration,
                 overlayMap,
                 scrollEnd
             };
@@ -320,81 +346,201 @@
             processSlides.dataset.maxShift = String(Math.max(0, totalWidth - vw));
         }
 
-        function updateOverlaySection(section, scrollY, revealStart, revealDuration) {
-            if (!section) return;
-            if (window.innerWidth <= 991) {
-                section.style.transform = '';
-                section.style.pointerEvents = '';
-                section.style.visibility = '';
-                return;
-            }
-
-            const scrollEnd = getScrollPhases().scrollEnd;
-
-            section.style.visibility = '';
-            section.style.opacity = '';
-
-            if (scrollY < revealStart) {
-                section.style.transform = 'translateY(100%)';
-                section.style.pointerEvents = 'none';
-                return;
-            }
-
-            const progress = Math.min(1, (scrollY - revealStart) / revealDuration);
-            const ease = smoothstep(progress);
-            section.style.transform = `translateY(${(1 - ease) * 100}%)`;
-            section.style.pointerEvents = ease > 0.35 ? 'auto' : 'none';
-        }
-
-        function updateProcessSection(scrollY) {
-            if (!processSection || !processSlides) return;
-            if (window.innerWidth <= 991) {
-                processSection.style.transform = '';
-                processSection.style.opacity = '';
-                processSection.style.visibility = '';
-                processSection.style.pointerEvents = '';
-                processSlides.style.transform = '';
-                return;
-            }
-
-            const scrollEnd = getScrollPhases().scrollEnd;
-
-            processSection.style.visibility = '';
-            processSection.style.opacity = '';
-
-            const phases = getScrollPhases();
-            const {
-                processRevealStart, processRevealDuration,
-                processHorizontalStart, processHorizontalDuration
-            } = phases;
-
-            if (scrollY < processRevealStart) {
-                processSection.style.transform = 'translateY(100%)';
-                processSection.style.pointerEvents = 'none';
-                processSlides.style.transform = 'translateX(0)';
-                return;
-            }
-
-            const revealProgress = Math.min(1, (scrollY - processRevealStart) / processRevealDuration);
-            const revealEase = smoothstep(revealProgress);
-            processSection.style.transform = `translateY(${(1 - revealEase) * 100}%)`;
-            processSection.style.pointerEvents = revealEase > 0.35 ? 'auto' : 'none';
-
-            if (scrollY >= processHorizontalStart) {
-                const hProgress = Math.min(1, (scrollY - processHorizontalStart) / processHorizontalDuration);
-                const maxShift = parseFloat(processSlides.dataset.maxShift || '0') || 0;
-                processSlides.style.transform = `translate3d(-${hProgress * maxShift}px, 0, 0)`;
-            } else {
-                processSlides.style.transform = 'translateX(0)';
-            }
-        }
-
         function updateOverlaySections(scrollY) {
+            if (window.innerWidth <= 991) {
+                // Mobile layout resets
+                const allIds = [
+                    'hero-sticky', 'problem', 'why-choose-us', 'process',
+                    'industries', 'case-studies', 'results', 'location-seo',
+                    'tools-platforms', 'faq', 'final-cta'
+                ];
+                allIds.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        el.style.transform = '';
+                        el.style.scale = '';
+                        el.style.opacity = '';
+                        el.style.pointerEvents = '';
+                        el.style.visibility = '';
+                    }
+                });
+                const processSlides = document.getElementById('process-slides');
+                if (processSlides) processSlides.style.transform = '';
+                return;
+            }
+
             const phases = getScrollPhases();
-            Object.entries(phases.overlayMap).forEach(([id, meta]) => {
-                updateOverlaySection(document.getElementById(id), scrollY, meta.start, meta.duration);
+            const H = phases.H;
+
+            // Define the visual stacking sequence:
+            const stack = [
+                {
+                    id: 'hero-sticky',
+                    activeStart: 0,
+                    activeEnd: phases.problemRevealStart,
+                    nextStart: phases.problemRevealStart,
+                    nextDuration: phases.problemRevealDuration,
+                    isHero: true
+                },
+                {
+                    id: 'problem',
+                    activeStart: phases.problemRevealStart,
+                    activeEnd: phases.whyChooseRevealStart,
+                    nextStart: phases.whyChooseRevealStart,
+                    nextDuration: phases.whyChooseRevealDuration
+                },
+                {
+                    id: 'why-choose-us',
+                    activeStart: phases.whyChooseRevealStart,
+                    activeEnd: phases.processRevealStart,
+                    nextStart: phases.processRevealStart,
+                    nextDuration: phases.processRevealDuration
+                },
+                {
+                    id: 'process',
+                    activeStart: phases.processRevealStart,
+                    activeEnd: phases.industriesRevealStart,
+                    nextStart: phases.industriesRevealStart,
+                    nextDuration: phases.industriesRevealDuration,
+                    isProcess: true
+                },
+                {
+                    id: 'industries',
+                    activeStart: phases.industriesRevealStart,
+                    activeEnd: phases.caseStudiesRevealStart,
+                    nextStart: phases.caseStudiesRevealStart,
+                    nextDuration: phases.caseStudiesRevealDuration
+                },
+                {
+                    id: 'case-studies',
+                    activeStart: phases.caseStudiesRevealStart,
+                    activeEnd: phases.resultsRevealStart,
+                    nextStart: phases.resultsRevealStart,
+                    nextDuration: phases.resultsRevealDuration
+                },
+                {
+                    id: 'results',
+                    activeStart: phases.resultsRevealStart,
+                    activeEnd: phases.locationRevealStart,
+                    nextStart: phases.locationRevealStart,
+                    nextDuration: phases.locationRevealDuration
+                },
+                {
+                    id: 'location-seo',
+                    activeStart: phases.locationRevealStart,
+                    activeEnd: phases.toolsRevealStart,
+                    nextStart: phases.toolsRevealStart,
+                    nextDuration: phases.toolsRevealDuration
+                },
+                {
+                    id: 'tools-platforms',
+                    activeStart: phases.toolsRevealStart,
+                    activeEnd: phases.faqRevealStart,
+                    nextStart: phases.faqRevealStart,
+                    nextDuration: phases.faqRevealDuration
+                },
+                {
+                    id: 'faq',
+                    activeStart: phases.faqRevealStart,
+                    activeEnd: phases.ctaRevealStart,
+                    nextStart: phases.ctaRevealStart,
+                    nextDuration: phases.ctaRevealDuration
+                },
+                {
+                    id: 'final-cta',
+                    activeStart: phases.ctaRevealStart,
+                    activeEnd: phases.scrollEnd,
+                    nextStart: null,
+                    nextDuration: 0
+                }
+            ];
+
+            stack.forEach(sec => {
+                const el = document.getElementById(sec.id);
+                if (!el) return;
+
+                el.style.visibility = '';
+
+                // Handle is-inview class trigger for animations inside the section
+                if (scrollY >= sec.activeStart - H * 0.5) {
+                    el.classList.add('is-inview');
+                    el.querySelectorAll('.tail-reveal').forEach(child => child.classList.add('is-inview'));
+                }
+
+                if (scrollY < sec.activeStart) {
+                    // Not reached yet
+                    if (sec.isHero) {
+                        el.style.transform = 'translateY(0%)';
+                        el.style.scale = '1';
+                        el.style.opacity = '1';
+                        el.style.pointerEvents = 'auto';
+                    } else {
+                        el.style.transform = 'translateY(100%)';
+                        el.style.scale = '1';
+                        el.style.opacity = '1';
+                        el.style.pointerEvents = 'none';
+                    }
+                } else if (scrollY >= sec.activeStart && scrollY < sec.activeEnd) {
+                    // Section is active (either sliding up or fully in place)
+                    if (sec.isHero) {
+                        el.style.transform = 'translateY(0%)';
+                        el.style.scale = '1';
+                        el.style.opacity = '1';
+                        el.style.pointerEvents = 'auto';
+                    } else if (sec.isProcess) {
+                        const revealProgress = Math.min(1, (scrollY - sec.activeStart) / phases.processRevealDuration);
+                        const revealEase = smoothstep(revealProgress);
+                        el.style.transform = `translateY(${(1 - revealEase) * 100}%)`;
+                        el.style.scale = '1';
+                        el.style.opacity = '1';
+                        el.style.pointerEvents = revealEase > 0.35 ? 'auto' : 'none';
+
+                        // Process horizontal slides shift
+                        const processSlides = document.getElementById('process-slides');
+                        if (processSlides) {
+                            if (scrollY >= phases.processHorizontalStart) {
+                                const hProgress = Math.min(1, (scrollY - phases.processHorizontalStart) / phases.processHorizontalDuration);
+                                const maxShift = parseFloat(processSlides.dataset.maxShift || '0') || 0;
+                                processSlides.style.transform = `translate3d(-${hProgress * maxShift}px, 0, 0)`;
+                            } else {
+                                processSlides.style.transform = 'translateX(0)';
+                            }
+                        }
+                    } else {
+                        const duration = phases.overlayMap[sec.id] ? phases.overlayMap[sec.id].duration : (sec.activeEnd - sec.activeStart);
+                        const progress = Math.min(1, (scrollY - sec.activeStart) / duration);
+                        const ease = smoothstep(progress);
+                        el.style.transform = `translateY(${(1 - ease) * 100}%)`;
+                        el.style.scale = '1';
+                        el.style.opacity = '1';
+                        el.style.pointerEvents = ease > 0.35 ? 'auto' : 'none';
+                    }
+                } else if (!sec.nextStart) {
+                    // Last section in the stack — nothing slides up over it, so keep it
+                    // fully pinned in place. Without this guard it gets pushed up/scaled
+                    // once scrollY reaches the very end, leaving an empty band at the bottom.
+                    el.style.transform = 'translateY(0%) scale(1)';
+                    el.style.opacity = '1';
+                    el.style.pointerEvents = 'auto';
+                } else {
+                    // Section has completed its active phase. The next section is sliding up (or has completed).
+                    if (scrollY < sec.nextStart + sec.nextDuration) {
+                        // Next section is currently sliding up
+                        const progress = Math.min(1, (scrollY - sec.nextStart) / sec.nextDuration);
+                        const ease = smoothstep(progress);
+                        const scale = 1 - ease * 0.04; // scale down slightly to 0.96
+                        const translateY = -ease * 15; // parallax translation upwards (moves up to -15%)
+                        el.style.transform = `translateY(${translateY}%) scale(${scale})`;
+                        el.style.opacity = '1'; // keep fully visible during slide up
+                        el.style.pointerEvents = 'none';
+                    } else {
+                        // Next section is fully in place, cover this one completely
+                        el.style.transform = 'translateY(-15%) scale(0.96)';
+                        el.style.opacity = '1'; // retain opacity
+                        el.style.pointerEvents = 'none';
+                    }
+                }
             });
-            updateProcessSection(scrollY);
         }
 
         function getPanelScrollY(panelId) {
@@ -818,11 +964,13 @@
                         targetY = getCaseStudiesRevealStart() + 10;
                     } else if (targetId.startsWith('#')) {
                         const sectionId = targetId.slice(1);
-                        const tailEl = document.getElementById(sectionId);
-                        if (tailEl && siteTail && siteTail.contains(tailEl)) {
-                            targetY = getTailSectionScrollY(sectionId);
-                        } else if (getScrollPhases().overlayMap[sectionId]) {
+                        if (getScrollPhases().overlayMap[sectionId]) {
                             targetY = getScrollPhases().overlayMap[sectionId].start + 10;
+                        } else {
+                            const tailEl = document.getElementById(sectionId);
+                            if (tailEl && siteTail && siteTail.contains(tailEl)) {
+                                targetY = getTailSectionScrollY(sectionId);
+                            }
                         }
                     }
 
