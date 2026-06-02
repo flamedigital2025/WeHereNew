@@ -2,7 +2,8 @@
         let lenisInstance = null;
 
         function initLenis() {
-            if (window.innerWidth > 991) {
+            const enableLenis = isHeroPage && window.innerWidth > 991;
+            if (enableLenis) {
                 if (!lenisInstance) {
                     lenisInstance = new Lenis({
                         duration: 1.2, // Premium buttery glide deceleration
@@ -15,15 +16,11 @@
                         infinite: false
                     });
                 }
-            } else {
-                if (lenisInstance) {
-                    lenisInstance.destroy();
-                    lenisInstance = null;
-                }
+            } else if (lenisInstance) {
+                lenisInstance.destroy();
+                lenisInstance = null;
             }
         }
-
-        initLenis();
 
         function raf(time) {
             if (lenisInstance) {
@@ -46,6 +43,8 @@
 
         // Page target definition
         const isHeroPage = !!heroVideo && !!document.getElementById('hero-logo-placeholder');
+
+        initLenis();
         const horizontalSlides = document.getElementById('horizontal-slides');
         const viewportContainer = document.getElementById('viewport-container');
         const appScroller = document.querySelector('.app-scroller');
@@ -287,8 +286,11 @@
             }
         }
 
+        let tailRevealInitialized = false;
+
         function initTailReveal() {
-            if (!siteTail) return;
+            if (!siteTail || tailRevealInitialized) return;
+            tailRevealInitialized = true;
             const revealEls = siteTail.querySelectorAll('.tail-reveal, .tail-section');
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
@@ -585,12 +587,11 @@
             syncViewportPin(scrollY);
         }
 
-        syncDesktopScrollLayout();
-        window.addEventListener('resize', syncDesktopScrollLayout);
-        window.addEventListener('load', () => {
+        if (isHeroPage) {
             syncDesktopScrollLayout();
-            initTailReveal();
-        });
+            window.addEventListener('resize', syncDesktopScrollLayout);
+            window.addEventListener('load', syncDesktopScrollLayout);
+        }
         initTailReveal();
 
         // --- STICKY NAVBAR CLASS TOGGLE (Mobile Fallback) ---
@@ -899,7 +900,7 @@
                 const navLinks = document.querySelectorAll('.nav-link');
                 navLinks.forEach(link => link.classList.remove('active-link'));
                 if (smoothedScrollY < H * 3.7) {
-                    const homeLink = document.querySelector('.nav-link[href="#"]');
+                    const homeLink = document.querySelector('.nav-link[href="index.html"], .nav-link[href="#"]');
                     if (homeLink) homeLink.classList.add('active-link');
                 } else if (smoothedScrollY < getPanelScrollY('showcase-panel') - H * 0.15) {
                     const expLink = document.querySelector('.nav-link[href="#experience"]');
@@ -924,18 +925,20 @@
                 }
 
                 // Mobile active nav link highlighting
-                const sections = document.querySelectorAll('section');
+                const sections = document.querySelectorAll('section[id]');
                 const navLinks = document.querySelectorAll('.nav-link');
-                let currentSec = "";
+                let currentSec = '';
+                const navOffset = (navBar?.offsetHeight || 80) + 40;
                 sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (currentScrollY >= (sectionTop - 300)) {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= navOffset && rect.bottom > navOffset) {
                         currentSec = section.getAttribute('id');
                     }
                 });
                 navLinks.forEach(link => {
                     link.classList.remove('active-link');
-                    if (link.getAttribute('href') === `#${currentSec}`) {
+                    const href = link.getAttribute('href');
+                    if (href === `#${currentSec}` || (href === 'index.html' && !currentSec && currentScrollY < 200)) {
                         link.classList.add('active-link');
                     }
                 });
@@ -952,12 +955,13 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', e => {
                 const targetId = anchor.getAttribute('href');
-                if (window.innerWidth > 991) {
-                    const H = window.innerHeight;
-                    let targetY = 0;
-                    if (targetId === '#') {
-                        targetY = 0;
-                    } else if (targetId === '#experience') {
+                if (targetId === '#') return;
+
+                const sectionId = targetId.slice(1);
+                let targetY = null;
+
+                if (isHeroPage && window.innerWidth > 991) {
+                    if (targetId === '#experience') {
                         targetY = getPanelScrollY('services-intro-panel') + 10;
                     } else if (targetId === '#showcase') {
                         targetY = getPanelScrollY('showcase-panel') + 10;
@@ -971,24 +975,29 @@
                         targetY = getIndustriesRevealStart() + 10;
                     } else if (targetId === '#case-studies') {
                         targetY = getCaseStudiesRevealStart() + 10;
-                    } else if (targetId.startsWith('#')) {
-                        const sectionId = targetId.slice(1);
-                        if (getScrollPhases().overlayMap[sectionId]) {
-                            targetY = getScrollPhases().overlayMap[sectionId].start + 10;
-                        } else {
-                            const tailEl = document.getElementById(sectionId);
-                            if (tailEl && siteTail && siteTail.contains(tailEl)) {
-                                targetY = getTailSectionScrollY(sectionId);
-                            }
+                    } else if (getScrollPhases().overlayMap[sectionId]) {
+                        targetY = getScrollPhases().overlayMap[sectionId].start + 10;
+                    } else {
+                        const tailEl = document.getElementById(sectionId);
+                        if (tailEl && siteTail && siteTail.contains(tailEl)) {
+                            targetY = getTailSectionScrollY(sectionId);
                         }
                     }
-
-                    e.preventDefault();
-                    if (lenisInstance) {
-                        lenisInstance.scrollTo(targetY, { duration: 1.6 });
-                    } else {
-                        window.scrollTo({ top: targetY, behavior: 'smooth' });
+                } else {
+                    const targetEl = document.getElementById(sectionId);
+                    if (targetEl) {
+                        const navOffset = navBar?.offsetHeight || 80;
+                        targetY = targetEl.getBoundingClientRect().top + window.scrollY - navOffset;
                     }
+                }
+
+                if (targetY === null) return;
+
+                e.preventDefault();
+                if (lenisInstance) {
+                    lenisInstance.scrollTo(targetY, { duration: 1.6 });
+                } else {
+                    window.scrollTo({ top: targetY, behavior: 'smooth' });
                 }
             });
         });

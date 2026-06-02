@@ -16,9 +16,9 @@
     <!-- STICKY NAVIGATION BAR -->
     <header class="header-nav" id="main-nav">
         <div class="container">
-            <a href="#" class="logo" id="nav-logo-wrap">
+            <a href="index.html" class="logo" id="nav-logo-wrap">
                 <img src="assets/main-logo.webp" alt="Wehere Media Logo" class="logo-img" id="nav-logo"
-                    style="opacity: 0; height: 100px; width: auto;" />
+                    style="opacity: 0;" />
             </a>
 
             <nav class="nav-links">
@@ -342,14 +342,15 @@
 
         <!-- PROBLEM SECTION — overlaps previous panel on scroll (desktop) -->
         <section class="overlay-section problem-section" id="problem" style="background: #000; color: #fff;">
-            <div class="container"
-                style="max-width: 1400px; padding-top: calc(var(--header-height) + 1rem); padding-bottom: 1rem;">
+            <div class="container problem-section-container"
+                style="max-width: 1400px;">
 
-                <div class="sp-top"
-                    style="position: relative; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; overflow: hidden;">
-                    <img src="assets/dashboard-graphic.png" alt=""
-                        style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); max-width: 600px; width: 100%; opacity: 0.5; mix-blend-mode: screen; pointer-events: none; z-index: 0; object-fit: contain;">
-                    <div style="position: relative; z-index: 1;">
+                <div class="sp-top section-header-zone"
+                    style="display: flex; flex-direction: column; gap: 0.35rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    <div class="problem-graphic-wrap" aria-hidden="true">
+                        <img src="assets/down.png" alt="" class="problem-header-graphic">
+                    </div>
+                    <div class="section-header-copy">
                         <p class="sp-label" style="color: #a855f7; font-size: 0.8rem;">⚡ THE CHALLENGE</p>
                         <h2 class="sp-title"
                             style="font-size: clamp(2rem, 4.5vw, 4.5rem); letter-spacing: -0.02em; line-height: 1.1;">
@@ -422,14 +423,15 @@
 
         <!-- WHY CHOOSE US — overlaps problem section on scroll (desktop) -->
         <section class="overlay-section why-choose-section" id="why-choose-us" style="background: #fff; color: #000;">
-            <div class="container"
-                style="max-width: 1400px; padding-top: calc(var(--header-height) + 1rem); padding-bottom: 1rem;">
+            <div class="container why-choose-section-container"
+                style="max-width: 1400px;">
 
-                <div class="sp-top"
-                    style="position: relative; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 1rem; overflow: hidden;">
-                    <img src="assets/solution-graphic.png" alt=""
-                        style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); max-width: 600px; width: 100%; opacity: 0.5; mix-blend-mode: multiply; pointer-events: none; z-index: 0; object-fit: contain;">
-                    <div style="position: relative; z-index: 1;">
+                <div class="sp-top section-header-zone"
+                    style="display: flex; flex-direction: column; gap: 0.35rem; border-bottom: 1px solid rgba(0,0,0,0.1);">
+                    <div class="why-graphic-wrap" aria-hidden="true">
+                        <img src="assets/up.png" alt="" class="why-header-graphic">
+                    </div>
+                    <div class="section-header-copy">
                         <p class="sp-label" style="color: #a855f7; font-size: 0.8rem; font-weight: 800;">✓ THE SOLUTION
                         </p>
                         <h2 class="sp-title"
@@ -638,14 +640,15 @@
 
         <!-- INDUSTRIES — overlaps process section on scroll -->
         <section class="overlay-section industries-section" id="industries" style="background: #000; color: #fff;">
-            <div class="container"
-                style="max-width: 1400px; padding-top: calc(var(--header-height) + 1rem); padding-bottom: 2rem;">
+            <div class="container industries-section-container"
+                style="max-width: 1400px;">
 
-                <div class="sp-top"
-                    style="position: relative; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; overflow: hidden;">
-                    <img src="assets/dashboard-graphic.png" alt=""
-                        style="position: absolute; top: -20%; right: 0; max-width: 600px; width: 100%; opacity: 0.4; mix-blend-mode: screen; pointer-events: none; z-index: 0; object-fit: contain;">
-                    <div style="position: relative; z-index: 1;">
+                <div class="sp-top section-header-zone"
+                    style="display: flex; flex-direction: column; gap: 0.35rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    <div class="industries-graphic-wrap" aria-hidden="true">
+                        <img src="assets/dashboard-graphic.png" alt="" class="industries-header-graphic">
+                    </div>
+                    <div class="section-header-copy">
                         <p class="sp-label" style="color: #a855f7; font-size: 0.8rem;">⚡ INDUSTRIES WE SERVE</p>
                         <h2 class="sp-title"
                             style="font-size: clamp(2rem, 4.5vw, 4.5rem); letter-spacing: -0.02em; line-height: 1.1;">
@@ -737,19 +740,19 @@
         <!-- CASE STUDIES — overlaps industries section on scroll -->
         <section class="overlay-section case-studies-section" id="case-studies" style="background: #fff; color: #000;">
             <div class="container"
-                style="max-width: 1400px; padding-top: calc(var(--header-height) + 1rem); padding-bottom: 2rem;">
+                style="max-width: 1400px;">
 
-                <div class="sp-top"
+                <div class="sp-top case-studies-header"
                     style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 1rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-                        <div>
+                    <div class="case-studies-header-row">
+                        <div class="case-studies-header-copy">
                             <p class="sp-label" style="color: #a855f7; font-size: 0.8rem; font-weight: 800;">✓ PROVEN
                                 RESULTS</p>
                             <h2 class="sp-title"
                                 style="font-size: clamp(2rem, 4.5vw, 4.5rem); letter-spacing: -0.02em; line-height: 1.1; color: #000;">
                                 Our work speaks<br>through ROI.</h2>
                         </div>
-                        <a href="case-studies.html" class="btn"
+                        <a href="case-studies.html" class="btn case-studies-header-btn"
                             style="background: #000; color: #fff; padding: 1rem 2rem; font-weight: 700; text-decoration: none; border-radius: 0;">VIEW
                             ALL →</a>
                     </div>
@@ -1191,7 +1194,7 @@
                 <div class="container">
                     <div class="footer-top">
                         <div class="footer-brand">
-                            <a href="#" class="logo footer-logo">
+                            <a href="index.html" class="logo footer-logo">
                                 <img src="assets/main-logo.webp" alt="Wehere Media Logo" class="logo-img"
                                     style="height: 180px; width: auto;" />
                             </a>
@@ -1251,7 +1254,6 @@
                                 <ul>
                                     <li><a href="about.html">About Us</a></li>
                                     <li><a href="contact.html">Contact Us</a></li>
-                                    <li><a href="#blog">Blog</a></li>
                                     <li><a href="case-studies.html">Case Studies</a></li>
                                     <li><a href="#faq">FAQ</a></li>
                                     <li><a href="privacy-policy.html">Privacy Policy</a></li>
