@@ -192,6 +192,10 @@
         const FAQ_REVEAL_VH = 1.2;
         const CTA_REVEAL_VH = 1.4;
 
+        // Extra px to park hidden/revealing stacked sections below the fold so their
+        // upward box-shadow + rounded top corners never bleed into the viewport.
+        const SHADOW_CLEAR_PX = 160;
+
         function smoothstep(t) {
             const c = Math.max(0, Math.min(1, t));
             return c * c * (3 - 2 * c);
@@ -475,7 +479,9 @@
                         el.style.opacity = '1';
                         el.style.pointerEvents = 'auto';
                     } else {
-                        el.style.transform = 'translateY(100%)';
+                        // Park fully below the fold incl. the upward box-shadow + rounded
+                        // top corners, so they don't bleed a "bent" shadow into the screen.
+                        el.style.transform = `translateY(calc(100% + ${SHADOW_CLEAR_PX}px))`;
                         el.style.scale = '1';
                         el.style.opacity = '1';
                         el.style.pointerEvents = 'none';
@@ -490,7 +496,7 @@
                     } else if (sec.isProcess) {
                         const revealProgress = Math.min(1, (scrollY - sec.activeStart) / phases.processRevealDuration);
                         const revealEase = smoothstep(revealProgress);
-                        el.style.transform = `translateY(${(1 - revealEase) * 100}%)`;
+                        el.style.transform = `translateY(calc(${(1 - revealEase) * 100}% + ${(1 - revealEase) * SHADOW_CLEAR_PX}px))`;
                         el.style.scale = '1';
                         el.style.opacity = '1';
                         el.style.pointerEvents = revealEase > 0.35 ? 'auto' : 'none';
@@ -510,7 +516,7 @@
                         const duration = phases.overlayMap[sec.id] ? phases.overlayMap[sec.id].duration : (sec.activeEnd - sec.activeStart);
                         const progress = Math.min(1, (scrollY - sec.activeStart) / duration);
                         const ease = smoothstep(progress);
-                        el.style.transform = `translateY(${(1 - ease) * 100}%)`;
+                        el.style.transform = `translateY(calc(${(1 - ease) * 100}% + ${(1 - ease) * SHADOW_CLEAR_PX}px))`;
                         el.style.scale = '1';
                         el.style.opacity = '1';
                         el.style.pointerEvents = ease > 0.35 ? 'auto' : 'none';
@@ -996,3 +1002,13 @@
                 card.style.setProperty('--mouse-y', `${y}px`);
             });
         });
+
+        // --- CONTACT FORM SUBMISSION (contact page) ---
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', e => {
+                e.preventDefault();
+                alert('Message sent! We will contact you soon.');
+                contactForm.reset();
+            });
+        }
