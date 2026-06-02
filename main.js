@@ -373,6 +373,9 @@
                 return;
             }
 
+            // Standalone pages (about, contact) must not use homepage scroll stacking
+            if (!isHeroPage) return;
+
             const phases = getScrollPhases();
             const H = phases.H;
 
